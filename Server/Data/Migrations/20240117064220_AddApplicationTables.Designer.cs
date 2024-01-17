@@ -4,6 +4,7 @@ using FullSD.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240117064220_AddApplicationTables")]
+    partial class AddApplicationTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -285,6 +288,12 @@ namespace FullSD.Server.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("BookDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("BookTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("BranchAddress")
                         .HasColumnType("nvarchar(max)");
 
@@ -309,6 +318,12 @@ namespace FullSD.Server.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("BookDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("BookTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerAddress")
                         .HasColumnType("nvarchar(max)");
@@ -341,6 +356,12 @@ namespace FullSD.Server.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("BookDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("BookTime")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("FoodDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -363,8 +384,14 @@ namespace FullSD.Server.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("BookDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("BookID")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("BookTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("BookingId")
                         .HasColumnType("int");
@@ -391,6 +418,12 @@ namespace FullSD.Server.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("BookDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("BookTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("BookingId")
                         .HasColumnType("int");
@@ -420,6 +453,12 @@ namespace FullSD.Server.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("BookDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("BookTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("BranchId")
                         .HasColumnType("int");
