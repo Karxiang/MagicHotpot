@@ -4,6 +4,7 @@ using FullSD.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240124095520_seeding")]
+    partial class seeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -232,26 +235,6 @@ namespace FullSD.Server.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "be04dd60-8599-41c2-8096-67868766306c",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "e1d0baf9-8ea2-46ee-a1f6-0988ed94c5cb",
-                            Email = "admin@localhost.com",
-                            EmailConfirmed = false,
-                            FirstName = "Admin",
-                            LastName = "User",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
-                            NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO30+TJ7T9PQtWg+/LVyAN0P2dJcS/t8qJFn9SxsO/LC1EMlUhmkgxgypZERBd2/yw==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "41dabdaf-d935-47f9-9595-a37b818bc08e",
-                            TwoFactorEnabled = false,
-                            UserName = "admin@localhost.com"
-                        });
                 });
 
             modelBuilder.Entity("FullSD.Shared.Domain.Booking", b =>
@@ -320,40 +303,6 @@ namespace FullSD.Server.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Branches");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            BranchAddress = "Tampines 1",
-                            BranchCapacity = 40,
-                            BranchName = "Tampines",
-                            BranchPhoneNo = 12345678
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BranchAddress = "Ubi Avenue 1",
-                            BranchCapacity = 45,
-                            BranchName = "Ubi",
-                            BranchPhoneNo = 23456781
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BranchAddress = "Serangoon Nex",
-                            BranchCapacity = 47,
-                            BranchName = "Serangoon",
-                            BranchPhoneNo = 34567812
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BranchAddress = "Ang Mo Kio Hub",
-                            BranchCapacity = 50,
-                            BranchName = "Ang Mo Kio",
-                            BranchPhoneNo = 45678123
-                        });
                 });
 
             modelBuilder.Entity("FullSD.Shared.Domain.Customer", b =>
@@ -407,128 +356,6 @@ namespace FullSD.Server.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Foods");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FoodName = "Sliced Fish",
-                            FoodPrice = 11.300000000000001
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FoodName = "Chicken Slices",
-                            FoodPrice = 8.3000000000000007
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FoodName = "Beef Slices",
-                            FoodPrice = 11.9
-                        },
-                        new
-                        {
-                            Id = 4,
-                            FoodName = "Cheese Tofu",
-                            FoodPrice = 5.9500000000000002
-                        },
-                        new
-                        {
-                            Id = 5,
-                            FoodName = "Fish Cured",
-                            FoodPrice = 5.9500000000000002
-                        },
-                        new
-                        {
-                            Id = 6,
-                            FoodName = "Sliced Pork Belly",
-                            FoodPrice = 11.9
-                        },
-                        new
-                        {
-                            Id = 7,
-                            FoodName = "Abalone",
-                            FoodPrice = 29.699999999999999
-                        },
-                        new
-                        {
-                            Id = 8,
-                            FoodName = "Prawn",
-                            FoodPrice = 10.699999999999999
-                        },
-                        new
-                        {
-                            Id = 9,
-                            FoodName = "Pork Meatball",
-                            FoodPrice = 8.9000000000000004
-                        },
-                        new
-                        {
-                            Id = 10,
-                            FoodName = "Fishball",
-                            FoodPrice = 5.9500000000000002
-                        },
-                        new
-                        {
-                            Id = 11,
-                            FoodName = "Quail Eggs",
-                            FoodPrice = 7.1500000000000004
-                        },
-                        new
-                        {
-                            Id = 12,
-                            FoodName = "Golden Enoki Mushrooms",
-                            FoodPrice = 6.5499999999999998
-                        },
-                        new
-                        {
-                            Id = 13,
-                            FoodName = "Sweet Corn",
-                            FoodPrice = 4.75
-                        },
-                        new
-                        {
-                            Id = 14,
-                            FoodName = "Radish",
-                            FoodPrice = 3.0
-                        },
-                        new
-                        {
-                            Id = 15,
-                            FoodName = "Black Fungus",
-                            FoodPrice = 4.2000000000000002
-                        },
-                        new
-                        {
-                            Id = 16,
-                            FoodName = "Lettuce",
-                            FoodPrice = 4.75
-                        },
-                        new
-                        {
-                            Id = 17,
-                            FoodName = "Cabbage",
-                            FoodPrice = 4.75
-                        },
-                        new
-                        {
-                            Id = 18,
-                            FoodName = "Spinach",
-                            FoodPrice = 4.75
-                        },
-                        new
-                        {
-                            Id = 19,
-                            FoodName = "Beencurd Rolls",
-                            FoodPrice = 7.7000000000000002
-                        },
-                        new
-                        {
-                            Id = 20,
-                            FoodName = "Instant Noodles",
-                            FoodPrice = 2.3999999999999999
-                        });
                 });
 
             modelBuilder.Entity("FullSD.Shared.Domain.OrderItem", b =>
@@ -623,48 +450,6 @@ namespace FullSD.Server.Data.Migrations
                     b.HasIndex("BranchId");
 
                     b.ToTable("Staffs");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            StaffIcNo = "S1234567F",
-                            StaffName = "Milly",
-                            StaffPhoneNo = 98765432,
-                            StaffPostion = "Manager"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            StaffIcNo = "S2345678F",
-                            StaffName = "Aron",
-                            StaffPhoneNo = 87654321,
-                            StaffPostion = "Staff"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            StaffIcNo = "S3456789F",
-                            StaffName = "Vedal",
-                            StaffPhoneNo = 76543210,
-                            StaffPostion = "Staff"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            StaffIcNo = "S4567890F",
-                            StaffName = "Marciana",
-                            StaffPhoneNo = 65432109,
-                            StaffPostion = "Staff"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            StaffIcNo = "S5678901F",
-                            StaffName = "Mark",
-                            StaffPhoneNo = 54321098,
-                            StaffPostion = "Staff"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -692,20 +477,6 @@ namespace FullSD.Server.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "89e4ba74-bec1-4947-b652-49587cc7d8b9",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
-                        },
-                        new
-                        {
-                            Id = "6ee1247a-4604-4cbf-836a-77c3a2c15e3a",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -795,13 +566,6 @@ namespace FullSD.Server.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "be04dd60-8599-41c2-8096-67868766306c",
-                            RoleId = "89e4ba74-bec1-4947-b652-49587cc7d8b9"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
