@@ -16,11 +16,11 @@ namespace FullSD.Server.Configurations.Entities
             builder.HasData(
             new Branch
             {
-                Id=1,
+                Id = 1,
                 BranchName="Tampines",
                 BranchAddress="Tampines 1",
                 BranchCapacity=40,
-                BranchPhoneNo=12345678,
+                BranchPhoneNo=62345678,
             },
             new Branch
             {
@@ -28,7 +28,7 @@ namespace FullSD.Server.Configurations.Entities
                 BranchName = "Ubi",
                 BranchAddress = "Ubi Avenue 1",
                 BranchCapacity = 45,
-                BranchPhoneNo = 23456781,
+                BranchPhoneNo = 63456781,
             },
             new Branch
             {
@@ -36,7 +36,7 @@ namespace FullSD.Server.Configurations.Entities
                 BranchName = "Serangoon",
                 BranchAddress = "Serangoon Nex",
                 BranchCapacity = 47,
-                BranchPhoneNo = 34567812,
+                BranchPhoneNo = 64567812,
             },
              new Branch
              {
@@ -44,7 +44,7 @@ namespace FullSD.Server.Configurations.Entities
                  BranchName = "Ang Mo Kio",
                  BranchAddress = "Ang Mo Kio Hub",
                  BranchCapacity = 50,
-                 BranchPhoneNo = 45678123,
+                 BranchPhoneNo = 65678123,
              }
              );
         }

@@ -27,7 +27,7 @@ namespace FullSD.Server.Configurations.Entities
             {
                 Id = 2,
                 StaffIcNo = "S2345678F",
-                StaffName = "Aron",
+                StaffName = "Aaron",
                 StaffPostion = "Staff",
                 StaffPhoneNo = 87654321,
              },

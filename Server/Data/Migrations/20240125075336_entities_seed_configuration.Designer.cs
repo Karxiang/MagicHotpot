@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240124102547_seeding1")]
-    partial class seeding1
+    [Migration("20240125075336_entities_seed_configuration")]
+    partial class entities_seed_configuration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace FullSD.Server.Data.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e1d0baf9-8ea2-46ee-a1f6-0988ed94c5cb",
+                            ConcurrencyStamp = "1d684c73-98af-4ab7-aa47-03dbb9aa76e7",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -249,9 +249,9 @@ namespace FullSD.Server.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO30+TJ7T9PQtWg+/LVyAN0P2dJcS/t8qJFn9SxsO/LC1EMlUhmkgxgypZERBd2/yw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA1vm41L9F6H5MspCUxWnLc32JBCjsVGcGEN1rWej47QU+64ommdYkjef28O9S4TPw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "41dabdaf-d935-47f9-9595-a37b818bc08e",
+                            SecurityStamp = "be630e8a-55a6-4c95-8f7b-438529fa856e",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -331,7 +331,7 @@ namespace FullSD.Server.Data.Migrations
                             BranchAddress = "Tampines 1",
                             BranchCapacity = 40,
                             BranchName = "Tampines",
-                            BranchPhoneNo = 12345678
+                            BranchPhoneNo = 62345678
                         },
                         new
                         {
@@ -339,7 +339,7 @@ namespace FullSD.Server.Data.Migrations
                             BranchAddress = "Ubi Avenue 1",
                             BranchCapacity = 45,
                             BranchName = "Ubi",
-                            BranchPhoneNo = 23456781
+                            BranchPhoneNo = 63456781
                         },
                         new
                         {
@@ -347,7 +347,7 @@ namespace FullSD.Server.Data.Migrations
                             BranchAddress = "Serangoon Nex",
                             BranchCapacity = 47,
                             BranchName = "Serangoon",
-                            BranchPhoneNo = 34567812
+                            BranchPhoneNo = 64567812
                         },
                         new
                         {
@@ -355,7 +355,7 @@ namespace FullSD.Server.Data.Migrations
                             BranchAddress = "Ang Mo Kio Hub",
                             BranchCapacity = 50,
                             BranchName = "Ang Mo Kio",
-                            BranchPhoneNo = 45678123
+                            BranchPhoneNo = 65678123
                         });
                 });
 
@@ -415,6 +415,7 @@ namespace FullSD.Server.Data.Migrations
                         new
                         {
                             Id = 1,
+                            FoodDescription = "Freshest Fish in the Ocean, Sliced up",
                             FoodName = "Sliced Fish",
                             FoodPrice = 11.300000000000001
                         },
@@ -439,7 +440,7 @@ namespace FullSD.Server.Data.Migrations
                         new
                         {
                             Id = 5,
-                            FoodName = "Fish Cured",
+                            FoodName = "Fish Paste",
                             FoodPrice = 5.9500000000000002
                         },
                         new
@@ -523,7 +524,7 @@ namespace FullSD.Server.Data.Migrations
                         new
                         {
                             Id = 19,
-                            FoodName = "Beencurd Rolls",
+                            FoodName = "Beancurd Rolls",
                             FoodPrice = 7.7000000000000002
                         },
                         new
@@ -640,7 +641,7 @@ namespace FullSD.Server.Data.Migrations
                         {
                             Id = 2,
                             StaffIcNo = "S2345678F",
-                            StaffName = "Aron",
+                            StaffName = "Aaron",
                             StaffPhoneNo = 87654321,
                             StaffPostion = "Staff"
                         },
