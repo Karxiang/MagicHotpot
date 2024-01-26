@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FullSD.Server.Controllers
 {
-    [Authorize]
+    //[Authorize] // comment out authorize to test in postman
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
