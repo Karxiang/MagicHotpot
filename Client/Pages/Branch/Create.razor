@@ -16,10 +16,12 @@
 
 <FormComponent ButtonText="Create Branch" branch="branch" OnValidSubmit="@CreateBranch" />
 @*Error here....*@
-<EditForm Model="@branch" OnValidSubmit="@OnValidSubmit">
+
+
+<EditForm Model="@branch" OnValidSubmit="CreateBranch">
     <DataAnnotationsValidator />
     <ValidationSummary />
-    <fieldset disabled="@Disabled" >
+
     <div class="form-group">
         <label>First Name:</label>
         <div>
@@ -27,7 +29,14 @@
             <ValidationMessage For="@(() => branch.BranchName)" />
         </div>
     </div>
-    </fieldset>
+        <br />
+    <br />
+    <button type="submit" class="btn btn-success btn-block">
+        Create Branch
+    </button>
+
+</EditForm>
+
 
 
 
