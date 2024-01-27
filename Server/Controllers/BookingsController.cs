@@ -33,7 +33,7 @@ namespace FullSD.Server.Controllers
         {
 
             //return await _context.Bookings.ToListAsync();
-            var bookings = await _unitOfWork.Bookings.GetAll();
+            var bookings = await _unitOfWork.Bookings.GetAll(includes: q => q.Include(x =>x.Branch).Include(x => x.Customer).Include(x=>x.Staff));
             return Ok(bookings);
         }
 
