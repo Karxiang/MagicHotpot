@@ -1,0 +1,44 @@
+﻿@page "/branches/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+
+<h3 class="card-title">Create New Branch</h3>
+<hr/>
+<br/>
+
+@*
+<EditForm Model="@branch" OnValidSubmit="CreateBranch">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+</EditForm>*@
+
+
+<FormComponent ButtonText="Create Branch" branch="branch" OnValidSubmit="@CreateBranch" />
+@*Error here....*@
+<EditForm Model="@branch" OnValidSubmit="@OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <fieldset disabled="@Disabled" >
+    <div class="form-group">
+        <label>First Name:</label>
+        <div>
+            <InputText @bind-Value="@branch.BranchName" class="form-control" />
+            <ValidationMessage For="@(() => branch.BranchName)" />
+        </div>
+    </div>
+    </fieldset>
+
+
+
+@code {// do for Branch, Customer, OrderItem and Review
+
+    Branch branch = new Branch();
+
+    private async Task CreateBranch()
+    {
+        await _client.PostAsJsonAsync(Endpoints.BranchesEndpoint, branch);
+        _navManager.NavigateTo("/branches/");
+    }
+
+}
