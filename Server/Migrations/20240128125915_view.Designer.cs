@@ -4,6 +4,7 @@ using FullSD.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240128125915_view")]
+    partial class view
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,7 +241,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca3a8e50-4778-48f2-909c-bf4252991ec2",
+                            ConcurrencyStamp = "9aac3e89-a9a8-4587-b681-aef9f5a916eb",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -246,9 +249,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJd3v9vs12yAmJ6vo2C+8o5C/+orOTfcELGeF1F6Q8jnM+MU/zSfcHQ5avWBA9Pjcw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAECQ8TMq3HwiAyxzSLTKlDpa/2LbwsQgVn9vQWMjv+iwiGy8PXjj1pHBj3aSZEdvTuw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "05e2b167-8cbc-4505-bad2-1371c6d79427",
+                            SecurityStamp = "13728421-c921-4527-bd4e-5f65b07d7732",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });

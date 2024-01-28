@@ -10,9 +10,12 @@ namespace FullSD.Shared.Domain
 {
     public class Food : BaseDomainModel 
     {
+		[Required(ErrorMessage = "Food Name is missing")]
 
-        public string? FoodName { get; set; }
+		public string? FoodName { get; set; }
         public string? FoodDescription { get; set; }
-        public double? FoodPrice { get; set; }
+		[Required]
+		[Range(0.01, 120.0, ErrorMessage = "Price must be between 0.01 and 120.0")]
+		public double? FoodPrice { get; set; }
     }
 }

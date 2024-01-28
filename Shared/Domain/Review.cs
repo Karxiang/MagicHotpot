@@ -10,7 +10,9 @@ namespace FullSD.Shared.Domain
 {
     public class Review : BaseDomainModel
     {
-        public int? ReviewRating { get; set; }
+        [Required]
+		[Range(0, 5, ErrorMessage = "Invalid rating! Please enter 0-5 (0 - Worst, 5 - Best)")]
+		public int? ReviewRating { get; set; }
         public string? ReviewDescription { get; set; }
 
         public virtual Customer? Customer { get; set; }

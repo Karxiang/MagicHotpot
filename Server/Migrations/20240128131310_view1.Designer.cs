@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240128074738_new_db")]
-    partial class new_db
+    [Migration("20240128131310_view1")]
+    partial class view1
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9a32b852-a58c-4850-a0d6-c90920d35636",
+                            ConcurrencyStamp = "ca3a8e50-4778-48f2-909c-bf4252991ec2",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -249,9 +249,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEI8STkr4crooMs/fMTOrn6YSfvahHuxQElJo9ZR98M8+o2f+VURXO7FtHtVhb1Gyog==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJd3v9vs12yAmJ6vo2C+8o5C/+orOTfcELGeF1F6Q8jnM+MU/zSfcHQ5avWBA9Pjcw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "63d06bef-fe22-45e1-b9de-96bca7bfd1a8",
+                            SecurityStamp = "05e2b167-8cbc-4505-bad2-1371c6d79427",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -269,24 +269,29 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("BookDate")
+                        .IsRequired()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("BookDiningType")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BookPartySize")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("BookTime")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("BookTime")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BranchId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CustomerId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateCreated")
@@ -296,6 +301,7 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("StaffId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("UpdatedBy")
@@ -321,15 +327,19 @@ namespace FullSD.Server.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("BranchAddress")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BranchCapacity")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("BranchName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("BranchPhoneNo")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("CreatedBy")
@@ -409,15 +419,19 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerEmail")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CustomerJoinDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CustomerName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("CustomerPhoneNo")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateCreated")
@@ -455,9 +469,11 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FoodName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double?>("FoodPrice")
+                        .IsRequired()
                         .HasColumnType("float");
 
                     b.Property<string>("UpdatedBy")
@@ -658,6 +674,7 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("OrderQty")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("UpdatedBy")
@@ -699,6 +716,7 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("ReviewRating")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("UpdatedBy")
@@ -737,18 +755,23 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("StaffIcNo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("StaffJoinDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("StaffName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("StaffPhoneNo")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("StaffPostion")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
@@ -975,15 +998,21 @@ namespace FullSD.Server.Migrations
                 {
                     b.HasOne("FullSD.Shared.Domain.Branch", "Branch")
                         .WithMany()
-                        .HasForeignKey("BranchId");
+                        .HasForeignKey("BranchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("FullSD.Shared.Domain.Customer", "Customer")
                         .WithMany()
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("FullSD.Shared.Domain.Staff", "Staff")
                         .WithMany()
-                        .HasForeignKey("StaffId");
+                        .HasForeignKey("StaffId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Branch");
 

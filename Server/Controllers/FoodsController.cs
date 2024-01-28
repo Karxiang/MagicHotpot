@@ -33,8 +33,8 @@ namespace FullSD.Server.Controllers
         {
 
             //return await _context.Foods.ToListAsync();
-            var foods = await _unitOfWork.Foods.GetAll();
-            return Ok(foods);
+            var Foods = await _unitOfWork.Foods.GetAll();
+            return Ok(Foods);
         }
 
         // GET: api/Foods/5
@@ -43,13 +43,13 @@ namespace FullSD.Server.Controllers
         public async Task<IActionResult> GetFood(int id)
         {
             //var food = await _context.Foods.FindAsync(id);
-            var food = await _unitOfWork.Foods.Get(q => q.Id == id);
-            if (food == null)
+            var Food = await _unitOfWork.Foods.Get(q => q.Id == id);
+            if (Food == null)
             {
                 return NotFound();
             }
 
-            return Ok(food);
+            return Ok(Food);
         }
 
         // PUT: api/Foods/5

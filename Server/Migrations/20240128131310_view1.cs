@@ -5,7 +5,7 @@
 namespace FullSD.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class pages : Migration
+    public partial class view1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace FullSD.Server.Migrations
                 keyColumn: "Id",
                 keyValue: "be04dd60-8599-41c2-8096-67868766306c",
                 columns: new[] { "ConcurrencyStamp", "PasswordHash", "SecurityStamp" },
-                values: new object[] { "5d7f6395-053c-4019-b324-a6b7d0ff783f", "AQAAAAIAAYagAAAAEIS0BrCfGPWHR/6+XOeHMdN7Ey7iI9gnNjYASN0QTPWNlG6OhQJH1enmkxyslfUeEA==", "d8ba4b27-8dd2-4e46-b210-954661acde2e" });
+                values: new object[] { "ca3a8e50-4778-48f2-909c-bf4252991ec2", "AQAAAAIAAYagAAAAEJd3v9vs12yAmJ6vo2C+8o5C/+orOTfcELGeF1F6Q8jnM+MU/zSfcHQ5avWBA9Pjcw==", "05e2b167-8cbc-4505-bad2-1371c6d79427" });
         }
 
         /// <inheritdoc />
@@ -26,7 +26,7 @@ namespace FullSD.Server.Migrations
                 keyColumn: "Id",
                 keyValue: "be04dd60-8599-41c2-8096-67868766306c",
                 columns: new[] { "ConcurrencyStamp", "PasswordHash", "SecurityStamp" },
-                values: new object[] { "9a32b852-a58c-4850-a0d6-c90920d35636", "AQAAAAIAAYagAAAAEI8STkr4crooMs/fMTOrn6YSfvahHuxQElJo9ZR98M8+o2f+VURXO7FtHtVhb1Gyog==", "63d06bef-fe22-45e1-b9de-96bca7bfd1a8" });
+                values: new object[] { "9aac3e89-a9a8-4587-b681-aef9f5a916eb", "AQAAAAIAAYagAAAAECQ8TMq3HwiAyxzSLTKlDpa/2LbwsQgVn9vQWMjv+iwiGy8PXjj1pHBj3aSZEdvTuw==", "13728421-c921-4527-bd4e-5f65b07d7732" });
         }
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240128082417_pages")]
-    partial class pages
+    [Migration("20240128113747_newdb")]
+    partial class newdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5d7f6395-053c-4019-b324-a6b7d0ff783f",
+                            ConcurrencyStamp = "2e001303-5fe5-4bf8-ab46-c83152df5d81",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -249,9 +249,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIS0BrCfGPWHR/6+XOeHMdN7Ey7iI9gnNjYASN0QTPWNlG6OhQJH1enmkxyslfUeEA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBI3odg1n35vYc4HhhZmVA1ULUk05pKzy/R3uqCp2ddVxB1M7N2MFICnxiKZ33d9aA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "d8ba4b27-8dd2-4e46-b210-954661acde2e",
+                            SecurityStamp = "67cc5a13-2d3e-4f8f-9969-6cf3c081d14b",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });

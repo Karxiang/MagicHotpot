@@ -6,49 +6,8 @@
 <hr />
 <br />
 
-<EditForm Model="@branch" OnValidSubmit="CreateBranch">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
+<FormComponent ButtonText="Create Branches" branches="branches" OnValidSubmit="@CreateBranch" />
 
-    <div class="form-group">
-        <label>Branch Name: </label>
-        <div>
-            <InputText @bind-Value="@branch.BranchName" class="form-control" />
-            <ValidationMessage For="@(() => branch.BranchName)" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>Branch Address: </label>
-        <div>
-            <InputText @bind-Value="@branch.BranchAddress" class="form-control" />
-            <ValidationMessage For="@(() => branch.BranchAddress)" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>Branch Capacity: </label>
-        <div>
-            <InputNumber @bind-Value="@branch.BranchCapacity" class="form-control" />
-            <ValidationMessage For="@(() => branch.BranchCapacity)" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label>Branch Phone Number: </label>
-        <div>
-            <InputNumber @bind-Value="@branch.BranchPhoneNo" class="form-control" />
-            <ValidationMessage For="@(() => branch.BranchPhoneNo)" />
-        </div>
-    </div>
-
-    <br />
-    <br />
-
-    <button type="submit" class="btn btn-success btn-block">
-        Create Branch
-    </button>
-</EditForm>
 
 
 @code {
