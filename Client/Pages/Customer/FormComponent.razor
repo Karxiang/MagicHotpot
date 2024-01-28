@@ -1,47 +1,46 @@
 ﻿<EditForm Model="@customer" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
-        <fieldset disabled ="@Disabled">
-
-    <div class="form-group">
-        <label>Customer Name: </label>
-        <div>
-            <InputText @bind-Value="@customer.CustomerName" class="form-control" />
-            <ValidationMessage For="@(() => customer.CustomerName)" />
+    <fieldset disabled ="@Disabled">
+        <div class="form-group">
+            <label>Customer Name: </label>
+            <div>
+                <InputText @bind-Value="@customer.CustomerName" class="form-control" />
+                <ValidationMessage For="@(() => customer.CustomerName)" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label>Email Address: </label>
-        <div>
-            <InputText @bind-Value="@customer.CustomerEmail" class="form-control" />
-            <ValidationMessage For="@(() => customer.CustomerEmail)" />
+        <div class="form-group">
+            <label>Email Address: </label>
+            <div>
+                <InputText @bind-Value="@customer.CustomerEmail" class="form-control" />
+                <ValidationMessage For="@(() => customer.CustomerEmail)" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label>Phone Number: </label>
-        <div>
-            <InputNumber @bind-Value="@customer.CustomerPhoneNo" class="form-control" />
-            <ValidationMessage For="@(() => customer.CustomerPhoneNo)" />
+        <div class="form-group">
+            <label>Phone Number: </label>
+            <div>
+                <InputNumber @bind-Value="@customer.CustomerPhoneNo" class="form-control" />
+                <ValidationMessage For="@(() => customer.CustomerPhoneNo)" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label>Address: </label>
-        <div>
-            <InputText @bind-Value="@customer.CustomerAddress" class="form-control" />
-            <ValidationMessage For="@(() => customer.CustomerAddress)" />
+        <div class="form-group">
+            <label>Address: </label>
+            <div>
+                <InputText @bind-Value="@customer.CustomerAddress" class="form-control" />
+                <ValidationMessage For="@(() => customer.CustomerAddress)" />
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        <label>Date Of Birth: </label>
-        <div>
-            <InputDate @bind-Value="@customer.CustomerDOB" class="form-control" />
-            <ValidationMessage For="@(() => customer.CustomerDOB)" />
+        <div class="form-group">
+            <label>Date Of Birth: </label>
+            <div>
+                <InputDate @bind-Value="@customer.CustomerDOB" class="form-control" />
+                <ValidationMessage For="@(() => customer.CustomerDOB)" />
+            </div>
         </div>
-    </div>
     </fieldset>
     <br />
     <br />
