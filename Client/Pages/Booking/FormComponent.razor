@@ -1,13 +1,6 @@
-﻿@page "/bookings/create"
-@inject HttpClient _client
-@inject NavigationManager _navManager
+﻿@inject HttpClient _client
 
-
-<h3 class="card-title">Create New Booking</h3>
-<hr/>
-<br/>
-
-<EditForm Model="@booking" OnValidSubmit="CreateBooking">
+<EditForm Model="@booking" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -24,7 +17,7 @@
                     }
                 }
             </InputSelect>
-            <ValidationMessage For="@(()=>booking.BranchId)"/>
+            <ValidationMessage For="@(()=>booking.BranchId)" />
         </div>
     </div>
 
@@ -98,13 +91,14 @@
     <br />
 
     <button type="submit" class="btn btn-success btn-block">
-        Create Booking
+        @ButtonText
     </button>
+    <BackToList Target="bookings"/>
 </EditForm>
-
 @code {
-    // do for Booking, Customer, OrderItem and Review
-    Booking booking = new Booking();
+    [Parameter] public Booking? booking { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
 
     private IList<Branch>? Branches;
     private IList<Customer>? Customers;
@@ -116,11 +110,4 @@
         Customers = await _client.GetFromJsonAsync<List<Customer>>($"{Endpoints.CustomersEndpoint}");
         Staffs = await _client.GetFromJsonAsync<List<Staff>>($"{Endpoints.StaffsEndpoint}");
     }
-
-    private async Task CreateBooking()
-    {
-        await _client.PostAsJsonAsync(Endpoints.BookingsEndpoint, booking);
-        _navManager.NavigateTo("/bookings/");
-    }
-
 }

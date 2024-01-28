@@ -1,0 +1,79 @@
+﻿@inject HttpClient _client
+
+<EditForm Model="@review" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Rating: </label>
+        <div>
+            <InputNumber @bind-Value="@review.ReviewRating" class="form-control" />
+            <ValidationMessage For="@(() => review.ReviewRating)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Description: </label>
+        <div>
+            <InputText @bind-Value="@review.ReviewDescription" class="form-control" />
+            <ValidationMessage For="@(() => review.ReviewDescription)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>CustomerID: </label>
+        <div>
+            <InputSelect @bind-Value="review.CustomerId" class="form-control">
+                <option value="">-- Select CustomerID --</option>
+                @if (Customers != null)
+                {
+                    foreach (var customer in Customers)
+                    {
+                        <option value="@customer.Id">@customer.CustomerName</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="@(()=> review.CustomerId)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>BookingID: </label>
+        <div>
+            <InputSelect @bind-Value="review.BookingId" class="form-control">
+                <option value="">-- Select BookingID --</option>
+                @if (Bookings != null)
+                {
+                    foreach (var booking in Bookings)
+                    {
+                        <option value="@booking.Id">@booking.Id</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="@(()=> review.BookingId)" />
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-success btn-block">
+        @ButtonText
+    </button>
+    <BackToList Target="reviews" />
+</EditForm>
+
+@code {
+    [Parameter] public Review? review { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    private IList<Customer>? Customers;
+    private IList<Booking>? Bookings;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Customers = await _client.GetFromJsonAsync<List<Customer>>($"{Endpoints.CustomersEndpoint}");
+        Bookings = await _client.GetFromJsonAsync<List<Booking>>($"{Endpoints.BookingsEndpoint}");
+    }
+}

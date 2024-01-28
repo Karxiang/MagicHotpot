@@ -1,12 +1,4 @@
-﻿@page "/branches/create"
-@inject HttpClient _client
-@inject NavigationManager _navManager
-
-<h3 class="card-title">Create New Branch</h3>
-<hr />
-<br />
-
-<EditForm Model="@branch" OnValidSubmit="CreateBranch">
+﻿<EditForm Model="@branch" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -46,18 +38,13 @@
     <br />
 
     <button type="submit" class="btn btn-success btn-block">
-        Create Branch
+        @ButtonText
     </button>
+    <BackToList Target="branches" />
 </EditForm>
 
-
-@code {
-    Branch branch = new Branch();
-
-    private async Task CreateBranch()
-    {
-        await _client.PostAsJsonAsync(Endpoints.BranchesEndpoint, branch);
-        _navManager.NavigateTo("/branches/");
-    }
-
+@code{
+    [Parameter] public Branch? branch { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
 }

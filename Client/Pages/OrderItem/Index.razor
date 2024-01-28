@@ -6,6 +6,11 @@
 <h3 class"card-title">OrderItems</h3>
 <br />
 
+<a href="/orderitems/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New OrderItem
+</a>
+
 @if (OrderItems == null)
 {
     <div class="alert alert-info">Loading OrderItems...</div>
@@ -35,7 +40,7 @@ else
                             <span class="oi oi-book"></span>
                         </a>
 
-                        <a href="/orderItem/edit/@orderItem.Id" class="btn btn-primary">
+                        <a href="/orderItems/edit/@orderItem.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
 

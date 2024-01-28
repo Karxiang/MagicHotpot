@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FullSD.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class postmanIrepo : Migration
+    public partial class new_db : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -418,7 +418,7 @@ namespace FullSD.Server.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "4ea0e0df-38bf-4ed7-8684-659b60a52133", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEE5U27/s2Dlv7jBLqanahu7K6Vj7pi6CL9qPW0vsCxA/wZP5JYtU1Uxxud0DiCgF9Q==", null, false, "95690403-6738-4bb5-81a2-b0d460d872b0", false, "admin@localhost.com" });
+                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "9a32b852-a58c-4850-a0d6-c90920d35636", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEI8STkr4crooMs/fMTOrn6YSfvahHuxQElJo9ZR98M8+o2f+VURXO7FtHtVhb1Gyog==", null, false, "63d06bef-fe22-45e1-b9de-96bca7bfd1a8", false, "admin@localhost.com" });
 
             migrationBuilder.InsertData(
                 table: "Branches",

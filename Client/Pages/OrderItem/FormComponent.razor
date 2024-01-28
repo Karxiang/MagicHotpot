@@ -1,0 +1,71 @@
+﻿@inject HttpClient _client
+
+<EditForm Model="@orderitem" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Food: </label>
+        <div>
+            <InputSelect @bind-Value="orderitem.FoodID" class="form-control">
+                <option value="">-- Select Food --</option>
+                @if (Foods != null)
+                {
+                    foreach (var food in Foods)
+                    {
+                        <option value="@food.Id">@food.FoodName</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="@(()=> orderitem.FoodID)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Order Quantity: </label>
+        <div>
+            <InputNumber @bind-Value="@orderitem.OrderQty" class="form-control" />
+            <ValidationMessage For="@(() => orderitem.OrderQty)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>BookingID: </label>
+        <div>
+            <InputSelect @bind-Value="orderitem.BookID" class="form-control">
+                <option value="">-- Select BookingID --</option>
+                @if (Bookings != null)
+                {
+                    foreach (var booking in Bookings)
+                    {
+                        <option value="@booking.Id">@booking.Id</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="@(()=> orderitem.BookID)" />
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-success btn-block">
+        @ButtonText
+    </button>
+    <BackToList Target="orderItems" />
+</EditForm>
+
+@code {
+    [Parameter] public OrderItem? orderitem { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    private IList<Food>? Foods;
+    private IList<Booking>? Bookings;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Foods = await _client.GetFromJsonAsync<List<Food>>($"{Endpoints.FoodsEndpoint}");
+        Bookings = await _client.GetFromJsonAsync<List<Booking>>($"{Endpoints.BookingsEndpoint}");
+    }
+}

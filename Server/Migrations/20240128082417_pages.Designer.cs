@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240126111409_postman-Irepo")]
-    partial class postmanIrepo
+    [Migration("20240128082417_pages")]
+    partial class pages
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4ea0e0df-38bf-4ed7-8684-659b60a52133",
+                            ConcurrencyStamp = "5d7f6395-053c-4019-b324-a6b7d0ff783f",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -249,9 +249,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEE5U27/s2Dlv7jBLqanahu7K6Vj7pi6CL9qPW0vsCxA/wZP5JYtU1Uxxud0DiCgF9Q==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEIS0BrCfGPWHR/6+XOeHMdN7Ey7iI9gnNjYASN0QTPWNlG6OhQJH1enmkxyslfUeEA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "95690403-6738-4bb5-81a2-b0d460d872b0",
+                            SecurityStamp = "d8ba4b27-8dd2-4e46-b210-954661acde2e",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });

@@ -6,6 +6,11 @@
 <h3 class"card-title">Customers</h3>
 <br />
 
+<a href="/customers/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Customer
+</a>
+
 @if (Customers == null)
 {
     <div class="alert alert-info">Loading Customers...</div>
@@ -39,7 +44,7 @@ else
                             <span class="oi oi-book"></span>
                         </a>
 
-                        <a href="/customer/edit/@customer.Id" class="btn btn-primary">
+                        <a href="/customers/edit/@customer.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
 

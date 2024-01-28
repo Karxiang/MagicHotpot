@@ -6,6 +6,11 @@
 <h3 class"card-title">Foods</h3>
 <br />
 
+<a href="/foods/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Food
+</a>
+
 @if (Foods == null)
 {
     <div class="alert alert-info">Loading Foods...</div>
@@ -33,7 +38,7 @@ else
                             <span class="oi oi-book"></span>
                         </a>
 
-                        <a href="/food/edit/@food.Id" class="btn btn-primary">
+                        <a href="/foods/edit/@food.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
 

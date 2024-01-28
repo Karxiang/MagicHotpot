@@ -6,7 +6,7 @@
 <h3 class"card-title">Bookings</h3>
 <br />
 
-<a href="/vehicles/create" class="btn btn-secondary">
+<a href="/bookings/create" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
     Create New Booking
 </a>
@@ -28,8 +28,8 @@ else
                 <th>Dining Type</th>
                 <th>Note</th>
                 <th>Customer Name</th>
-                <th>Branch Id</th>
                 <th>BookDate</th>
+                <th>BookTime</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -41,15 +41,15 @@ else
                     <td>@booking.BookPartySize</td>
                     <td>@booking.BookDiningType</td>
                     <td>@booking.BookAddNote</td>
-                    <td>@booking.Customer</td>
-                    <td>@booking.BranchId</td>
+                    <td>@booking.CustomerId</td>
                     <td>@booking.BookDate</td>
+                    <td>@booking.BookTime</td>
                     <td>
                         <a href="/booking/view/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
                         </a>
 
-                        <a href="/booking/edit/@booking.Id" class="btn btn-primary">
+                        <a href="/bookings/edit/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
 

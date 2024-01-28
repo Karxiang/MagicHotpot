@@ -1,0 +1,58 @@
+﻿<EditForm Model="@customer" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Customer Name: </label>
+        <div>
+            <InputText @bind-Value="@customer.CustomerName" class="form-control" />
+            <ValidationMessage For="@(() => customer.CustomerName)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Email Address: </label>
+        <div>
+            <InputText @bind-Value="@customer.CustomerEmail" class="form-control" />
+            <ValidationMessage For="@(() => customer.CustomerEmail)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number: </label>
+        <div>
+            <InputNumber @bind-Value="@customer.CustomerPhoneNo" class="form-control" />
+            <ValidationMessage For="@(() => customer.CustomerPhoneNo)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Address: </label>
+        <div>
+            <InputText @bind-Value="@customer.CustomerAddress" class="form-control" />
+            <ValidationMessage For="@(() => customer.CustomerAddress)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Date Of Birth: </label>
+        <div>
+            <InputDate @bind-Value="@customer.CustomerDOB" class="form-control" />
+            <ValidationMessage For="@(() => customer.CustomerDOB)" />
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-success btn-block">
+        @ButtonText
+    </button>
+    <BackToList Target="customers" />
+</EditForm>
+
+@code {
+    [Parameter] public Customer? customer { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+}

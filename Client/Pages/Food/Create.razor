@@ -1,0 +1,55 @@
+﻿@page "/foods/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<h3 class="card-title">Create New Food</h3>
+<hr />
+<br />
+
+<EditForm Model="@food" OnValidSubmit="CreateFood">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label>Food Name: </label>
+        <div>
+            <InputText @bind-Value="@food.FoodName" class="form-control" />
+            <ValidationMessage For="@(() => food.FoodName)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Food Description: </label>
+        <div>
+            <InputText @bind-Value="@food.FoodDescription" class="form-control" />
+            <ValidationMessage For="@(() => food.FoodDescription)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Food Price: </label>
+        <div>
+            <InputNumber @bind-Value="@food.FoodPrice" class="form-control" />
+            <ValidationMessage For="@(() => food.FoodPrice)" />
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    <button type="submit" class="btn btn-success btn-block">
+        Create Food
+    </button>
+</EditForm>
+
+
+@code {
+    Food food = new Food();
+
+    private async Task CreateFood()
+    {
+        await _client.PostAsJsonAsync(Endpoints.FoodsEndpoint, food);
+        _navManager.NavigateTo("/foods/");
+    }
+
+}
