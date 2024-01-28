@@ -21,12 +21,11 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>
-                <th>Booking Name</th>
+                <th>Branch Name</th>
                 <th>Address</th>
                 <th>Capacity</th>
                 <th>Branch Phone Number</th>
-                </th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -34,6 +33,9 @@ else
             {
                 <tr>
                     <td>@branch.BranchName</td>
+                    <td>@branch.BranchAddress</td>
+                    <td>@branch.BranchCapacity</td>
+                    <td>@branch.BranchPhoneNo</td>
                     <td>
                         <a href="/branch/view/@branch.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>

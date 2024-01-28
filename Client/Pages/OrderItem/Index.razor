@@ -15,22 +15,21 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>
                     <th>OrderItem Id</th>
-                    <th>Party Size</th>
-                    <th>Dining Type</th>
-                    <th>Note</th>
-                    <th>Customer Name</th>
-                    <th>Branch Id</th>
-                    <th>BookDate</th>
-                </th>
+                    <th>Order qty</th>
+                    <th>Food ID</th>
+                    <th>Booking ID</th>
+                    <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var orderItem in OrderItems)
             {
                 <tr>
-                    <td>@orderItem.Food</td>
+                    <td>@orderItem.Id</td>
+                    <td>@orderItem.OrderQty</td>
+                    <td>@orderItem.FoodID</td>
+                    <td>@orderItem.BookID</td>
                     <td>
                         <a href="/orderItem/view/@orderItem.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -49,10 +48,6 @@ else
         </tbody>
     </table>
 }
-
-
-
-
 
 @code {
     private List<OrderItem>? OrderItems;

@@ -18,6 +18,7 @@ else
                     <th>Food Name</th>
                     <th>Food Description</th>
                     <th>Price</th>
+                    <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,7 +26,8 @@ else
             {
                 <tr>
                     <td>@food.FoodName</td>
-                    <td>@food.Id</td>
+                    <td>@food.FoodDescription</td>
+                    <td>@food.FoodPrice</td>
                     <td>
                         <a href="/food/view/@food.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -54,7 +56,6 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        Foods = await _client.GetFromJsonAsync<List<Food>>("api/foods");
         Foods = await _client.GetFromJsonAsync<List<Food>>($"{Endpoints.FoodsEndpoint}");
     }
 

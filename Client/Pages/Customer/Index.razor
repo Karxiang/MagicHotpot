@@ -15,15 +15,13 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>
-                    <th>Customer Id</th>
-                    <th>Party Size</th>
-                    <th>Dining Type</th>
-                    <th>Note</th>
                     <th>Customer Name</th>
-                    <th>Branch Id</th>
-                    <th>BookDate</th>
-                </th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Address</th>
+                    <th>DoB</th>
+                    <th>Join Date</th>
+                    <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +29,11 @@ else
             {
                 <tr>
                     <td>@customer.CustomerName</td>
+                    <td>@customer.CustomerEmail</td>
+                    <td>@customer.CustomerPhoneNo</td>
+                    <td>@customer.CustomerAddress</td>
+                    <td>@customer.CustomerDOB</td>
+                    <td>@customer.CustomerJoinDate</td>
                     <td>
                         <a href="/customer/view/@customer.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>

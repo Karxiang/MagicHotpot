@@ -15,14 +15,13 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>
-                    <th>Staff IC No</th>
                     <th>Name</th>
+                    <th>Staff IC No</th>
                     <th>Position</th>
                     <th>PhoneNo</th>
                     <th>DoB</th>
                     <th>Join Date</th>
-                </th>
+                    <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +29,11 @@ else
             {
                 <tr>
                     <td>@staff.StaffName</td>
+                    <td>@staff.StaffIcNo</td>
+                    <td>@staff.StaffPostion</td>
+                    <td>@staff.StaffPhoneNo</td>
+                    <td>@staff.StaffDOB</td>
+                    <td>@staff.StaffJoinDate</td>
                     <td>
                         <a href="/staff/view/@staff.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>

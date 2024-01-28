@@ -1,4 +1,9 @@
-﻿namespace FullSD.Client.Static
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace FullSD.Client.Static
 {
     public static class Endpoints
     {

@@ -15,19 +15,23 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                <th>
-                    <th>Rating</th>
-                    <th>Description</th>
-                    <th>Customer Id</th>
-                    <th>Booking Id</th>
-                </th>
+                    <th>Review ID</th>
+                    <th>Review Rating</th>
+                    <th>Review Description</th>
+                    <th>CustID</th>
+                    <th>BookID</th>
+                    <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var review in Reviews)
             {
                 <tr>
-                    <td>@review.Customer</td>
+                    <td>@review.Id</td>
+                    <td>@review.ReviewRating</td>
+                    <td>@review.ReviewDescription</td>
+                    <td>@review.CustomerId</td>
+                    <td>@review.BookingId</td>
                     <td>
                         <a href="/review/view/@review.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
