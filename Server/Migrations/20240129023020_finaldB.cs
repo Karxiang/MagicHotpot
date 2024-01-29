@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FullSD.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class newdb : Migration
+    public partial class finaldB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -60,14 +60,10 @@ namespace FullSD.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BranchName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BranchAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BranchCapacity = table.Column<int>(type: "int", nullable: true),
-                    BranchPhoneNo = table.Column<int>(type: "int", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BranchName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BranchAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BranchCapacity = table.Column<int>(type: "int", nullable: false),
+                    BranchPhoneNo = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -80,16 +76,12 @@ namespace FullSD.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CustomerName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CustomerPhoneNo = table.Column<int>(type: "int", nullable: true),
+                    CustomerName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    CustomerEmail = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CustomerPhoneNo = table.Column<int>(type: "int", nullable: false),
                     CustomerAddress = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerDOB = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CustomerJoinDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    CustomerJoinDate = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -121,13 +113,9 @@ namespace FullSD.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FoodName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FoodName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FoodDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FoodPrice = table.Column<double>(type: "float", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FoodPrice = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -284,17 +272,13 @@ namespace FullSD.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StaffIcNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StaffName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StaffPostion = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StaffPhoneNo = table.Column<int>(type: "int", nullable: true),
+                    StaffIcNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StaffName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    StaffPostion = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    StaffPhoneNo = table.Column<int>(type: "int", nullable: false),
                     StaffDOB = table.Column<DateTime>(type: "datetime2", nullable: true),
                     StaffJoinDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    BranchId = table.Column<int>(type: "int", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BranchId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -312,18 +296,14 @@ namespace FullSD.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BookPartySize = table.Column<int>(type: "int", nullable: true),
-                    BookDiningType = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BookPartySize = table.Column<int>(type: "int", nullable: false),
+                    BookDiningType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BookAddNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BookDate = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    BookTime = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CustomerId = table.Column<int>(type: "int", nullable: true),
-                    BranchId = table.Column<int>(type: "int", nullable: true),
-                    StaffId = table.Column<int>(type: "int", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BookDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    BookTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CustomerId = table.Column<int>(type: "int", nullable: false),
+                    BranchId = table.Column<int>(type: "int", nullable: false),
+                    StaffId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -332,17 +312,20 @@ namespace FullSD.Server.Migrations
                         name: "FK_Bookings_Branches_BranchId",
                         column: x => x.BranchId,
                         principalTable: "Branches",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Bookings_Customers_CustomerId",
                         column: x => x.CustomerId,
                         principalTable: "Customers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Bookings_Staffs_StaffId",
                         column: x => x.StaffId,
                         principalTable: "Staffs",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -351,14 +334,10 @@ namespace FullSD.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    OrderQty = table.Column<int>(type: "int", nullable: true),
+                    OrderQty = table.Column<int>(type: "int", nullable: false),
                     FoodID = table.Column<int>(type: "int", nullable: false),
                     BookingId = table.Column<int>(type: "int", nullable: true),
-                    BookID = table.Column<int>(type: "int", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BookID = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -382,14 +361,10 @@ namespace FullSD.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ReviewRating = table.Column<int>(type: "int", nullable: true),
+                    ReviewRating = table.Column<int>(type: "int", nullable: false),
                     ReviewDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CustomerId = table.Column<int>(type: "int", nullable: true),
-                    BookingId = table.Column<int>(type: "int", nullable: true),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BookingId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -418,56 +393,56 @@ namespace FullSD.Server.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "2e001303-5fe5-4bf8-ab46-c83152df5d81", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEBI3odg1n35vYc4HhhZmVA1ULUk05pKzy/R3uqCp2ddVxB1M7N2MFICnxiKZ33d9aA==", null, false, "67cc5a13-2d3e-4f8f-9969-6cf3c081d14b", false, "admin@localhost.com" });
+                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "740b2717-8809-469c-89a5-45128d2b7b70", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAENHaVNeofibbW8oMM79OiGiEfLaDHNyci17VNaxv0f0cG2pPkcdyzk/orFletIUZYA==", null, false, "3adbb520-4d37-4585-b2a4-5ff5d78175f5", false, "admin@localhost.com" });
 
             migrationBuilder.InsertData(
                 table: "Branches",
-                columns: new[] { "Id", "BranchAddress", "BranchCapacity", "BranchName", "BranchPhoneNo", "CreatedBy", "DateCreated", "DateUpdated", "UpdatedBy" },
+                columns: new[] { "Id", "BranchAddress", "BranchCapacity", "BranchName", "BranchPhoneNo" },
                 values: new object[,]
                 {
-                    { 1, "Tampines 1", 40, "Tampines", 62345678, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 2, "Ubi Avenue 1", 45, "Ubi", 63456781, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 3, "Serangoon Nex", 47, "Serangoon", 64567812, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null },
-                    { 4, "Ang Mo Kio Hub", 50, "Ang Mo Kio", 65678123, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null }
+                    { 1, "Tampines 1", 40, "Tampines", 62345678 },
+                    { 2, "Ubi Avenue 1", 45, "Ubi", 63456781 },
+                    { 3, "Serangoon Nex", 47, "Serangoon", 64567812 },
+                    { 4, "Ang Mo Kio Hub", 50, "Ang Mo Kio", 65678123 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Foods",
-                columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "FoodDescription", "FoodName", "FoodPrice", "UpdatedBy" },
+                columns: new[] { "Id", "FoodDescription", "FoodName", "FoodPrice" },
                 values: new object[,]
                 {
-                    { 1, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Freshest Fish in the Ocean, Sliced up", "Sliced Fish", 11.300000000000001, null },
-                    { 2, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Chicken Slices", 8.3000000000000007, null },
-                    { 3, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Beef Slices", 11.9, null },
-                    { 4, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Cheese Tofu", 5.9500000000000002, null },
-                    { 5, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Fish Paste", 5.9500000000000002, null },
-                    { 6, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Sliced Pork Belly", 11.9, null },
-                    { 7, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Abalone", 29.699999999999999, null },
-                    { 8, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Prawn", 10.699999999999999, null },
-                    { 9, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Pork Meatball", 8.9000000000000004, null },
-                    { 10, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Fishball", 5.9500000000000002, null },
-                    { 11, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Quail Eggs", 7.1500000000000004, null },
-                    { 12, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Golden Enoki Mushrooms", 6.5499999999999998, null },
-                    { 13, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Sweet Corn", 4.75, null },
-                    { 14, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Radish", 3.0, null },
-                    { 15, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Black Fungus", 4.2000000000000002, null },
-                    { 16, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Lettuce", 4.75, null },
-                    { 17, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Cabbage", 4.75, null },
-                    { 18, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Spinach", 4.75, null },
-                    { 19, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Beancurd Rolls", 7.7000000000000002, null },
-                    { 20, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "Instant Noodles", 2.3999999999999999, null }
+                    { 1, "Freshest Fish in the Ocean, Sliced up", "Sliced Fish", 11.300000000000001 },
+                    { 2, null, "Chicken Slices", 8.3000000000000007 },
+                    { 3, null, "Beef Slices", 11.9 },
+                    { 4, null, "Cheese Tofu", 5.9500000000000002 },
+                    { 5, null, "Fish Paste", 5.9500000000000002 },
+                    { 6, null, "Sliced Pork Belly", 11.9 },
+                    { 7, null, "Abalone", 29.699999999999999 },
+                    { 8, null, "Prawn", 10.699999999999999 },
+                    { 9, null, "Pork Meatball", 8.9000000000000004 },
+                    { 10, null, "Fishball", 5.9500000000000002 },
+                    { 11, null, "Quail Eggs", 7.1500000000000004 },
+                    { 12, null, "Golden Enoki Mushrooms", 6.5499999999999998 },
+                    { 13, null, "Sweet Corn", 4.75 },
+                    { 14, null, "Radish", 3.0 },
+                    { 15, null, "Black Fungus", 4.2000000000000002 },
+                    { 16, null, "Lettuce", 4.75 },
+                    { 17, null, "Cabbage", 4.75 },
+                    { 18, null, "Spinach", 4.75 },
+                    { 19, null, "Beancurd Rolls", 7.7000000000000002 },
+                    { 20, null, "Instant Noodles", 2.3999999999999999 }
                 });
 
             migrationBuilder.InsertData(
                 table: "Staffs",
-                columns: new[] { "Id", "BranchId", "CreatedBy", "DateCreated", "DateUpdated", "StaffDOB", "StaffIcNo", "StaffJoinDate", "StaffName", "StaffPhoneNo", "StaffPostion", "UpdatedBy" },
+                columns: new[] { "Id", "BranchId", "StaffDOB", "StaffIcNo", "StaffJoinDate", "StaffName", "StaffPhoneNo", "StaffPostion" },
                 values: new object[,]
                 {
-                    { 1, null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "S1234567F", null, "Milly", 98765432, "Manager", null },
-                    { 2, null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "S2345678F", null, "Aaron", 87654321, "Staff", null },
-                    { 3, null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "S3456789F", null, "Vedal", 76543210, "Staff", null },
-                    { 4, null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "S4567890F", null, "Marciana", 65432109, "Staff", null },
-                    { 5, null, null, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), null, "S5678901F", null, "Mark", 54321098, "Staff", null }
+                    { 1, null, null, "S1234567F", null, "Milly", 98765432, "Manager" },
+                    { 2, null, null, "S2345678F", null, "Aaron", 87654321, "Staff" },
+                    { 3, null, null, "S3456789F", null, "Vedal", 76543210, "Staff" },
+                    { 4, null, null, "S4567890F", null, "Marciana", 65432109, "Staff" },
+                    { 5, null, null, "S5678901F", null, "Mark", 54321098, "Staff" }
                 });
 
             migrationBuilder.InsertData(

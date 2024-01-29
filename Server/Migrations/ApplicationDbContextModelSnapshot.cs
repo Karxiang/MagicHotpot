@@ -238,7 +238,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca3a8e50-4778-48f2-909c-bf4252991ec2",
+                            ConcurrencyStamp = "740b2717-8809-469c-89a5-45128d2b7b70",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -246,9 +246,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJd3v9vs12yAmJ6vo2C+8o5C/+orOTfcELGeF1F6Q8jnM+MU/zSfcHQ5avWBA9Pjcw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAENHaVNeofibbW8oMM79OiGiEfLaDHNyci17VNaxv0f0cG2pPkcdyzk/orFletIUZYA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "05e2b167-8cbc-4505-bad2-1371c6d79427",
+                            SecurityStamp = "3adbb520-4d37-4585-b2a4-5ff5d78175f5",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -284,25 +284,13 @@ namespace FullSD.Server.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("CustomerId")
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("StaffId")
                         .IsRequired()
                         .HasColumnType("int");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -339,18 +327,6 @@ namespace FullSD.Server.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Branches");
@@ -362,9 +338,7 @@ namespace FullSD.Server.Migrations
                             BranchAddress = "Tampines 1",
                             BranchCapacity = 40,
                             BranchName = "Tampines",
-                            BranchPhoneNo = 62345678,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            BranchPhoneNo = 62345678
                         },
                         new
                         {
@@ -372,9 +346,7 @@ namespace FullSD.Server.Migrations
                             BranchAddress = "Ubi Avenue 1",
                             BranchCapacity = 45,
                             BranchName = "Ubi",
-                            BranchPhoneNo = 63456781,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            BranchPhoneNo = 63456781
                         },
                         new
                         {
@@ -382,9 +354,7 @@ namespace FullSD.Server.Migrations
                             BranchAddress = "Serangoon Nex",
                             BranchCapacity = 47,
                             BranchName = "Serangoon",
-                            BranchPhoneNo = 64567812,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            BranchPhoneNo = 64567812
                         },
                         new
                         {
@@ -392,9 +362,7 @@ namespace FullSD.Server.Migrations
                             BranchAddress = "Ang Mo Kio Hub",
                             BranchCapacity = 50,
                             BranchName = "Ang Mo Kio",
-                            BranchPhoneNo = 65678123,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            BranchPhoneNo = 65678123
                         });
                 });
 
@@ -405,9 +373,6 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerAddress")
                         .HasColumnType("nvarchar(max)");
@@ -431,15 +396,6 @@ namespace FullSD.Server.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
@@ -453,15 +409,6 @@ namespace FullSD.Server.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("FoodDescription")
                         .HasColumnType("nvarchar(max)");
 
@@ -473,9 +420,6 @@ namespace FullSD.Server.Migrations
                         .IsRequired()
                         .HasColumnType("float");
 
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.ToTable("Foods");
@@ -484,8 +428,6 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodDescription = "Freshest Fish in the Ocean, Sliced up",
                             FoodName = "Sliced Fish",
                             FoodPrice = 11.300000000000001
@@ -493,152 +435,114 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Chicken Slices",
                             FoodPrice = 8.3000000000000007
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Beef Slices",
                             FoodPrice = 11.9
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Cheese Tofu",
                             FoodPrice = 5.9500000000000002
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Fish Paste",
                             FoodPrice = 5.9500000000000002
                         },
                         new
                         {
                             Id = 6,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Sliced Pork Belly",
                             FoodPrice = 11.9
                         },
                         new
                         {
                             Id = 7,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Abalone",
                             FoodPrice = 29.699999999999999
                         },
                         new
                         {
                             Id = 8,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Prawn",
                             FoodPrice = 10.699999999999999
                         },
                         new
                         {
                             Id = 9,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Pork Meatball",
                             FoodPrice = 8.9000000000000004
                         },
                         new
                         {
                             Id = 10,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Fishball",
                             FoodPrice = 5.9500000000000002
                         },
                         new
                         {
                             Id = 11,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Quail Eggs",
                             FoodPrice = 7.1500000000000004
                         },
                         new
                         {
                             Id = 12,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Golden Enoki Mushrooms",
                             FoodPrice = 6.5499999999999998
                         },
                         new
                         {
                             Id = 13,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Sweet Corn",
                             FoodPrice = 4.75
                         },
                         new
                         {
                             Id = 14,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Radish",
                             FoodPrice = 3.0
                         },
                         new
                         {
                             Id = 15,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Black Fungus",
                             FoodPrice = 4.2000000000000002
                         },
                         new
                         {
                             Id = 16,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Lettuce",
                             FoodPrice = 4.75
                         },
                         new
                         {
                             Id = 17,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Cabbage",
                             FoodPrice = 4.75
                         },
                         new
                         {
                             Id = 18,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Spinach",
                             FoodPrice = 4.75
                         },
                         new
                         {
                             Id = 19,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Beancurd Rolls",
                             FoodPrice = 7.7000000000000002
                         },
                         new
                         {
                             Id = 20,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FoodName = "Instant Noodles",
                             FoodPrice = 2.3999999999999999
                         });
@@ -658,24 +562,12 @@ namespace FullSD.Server.Migrations
                     b.Property<int?>("BookingId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("FoodID")
                         .HasColumnType("int");
 
                     b.Property<int?>("OrderQty")
                         .IsRequired()
                         .HasColumnType("int");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -697,17 +589,8 @@ namespace FullSD.Server.Migrations
                     b.Property<int?>("BookingId")
                         .HasColumnType("int");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int?>("CustomerId")
                         .HasColumnType("int");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("ReviewDescription")
                         .HasColumnType("nvarchar(max)");
@@ -715,9 +598,6 @@ namespace FullSD.Server.Migrations
                     b.Property<int?>("ReviewRating")
                         .IsRequired()
                         .HasColumnType("int");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -738,15 +618,6 @@ namespace FullSD.Server.Migrations
 
                     b.Property<int?>("BranchId")
                         .HasColumnType("int");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DateUpdated")
-                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("StaffDOB")
                         .HasColumnType("datetime2");
@@ -771,9 +642,6 @@ namespace FullSD.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("BranchId");
@@ -784,8 +652,6 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S1234567F",
                             StaffName = "Milly",
                             StaffPhoneNo = 98765432,
@@ -794,8 +660,6 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S2345678F",
                             StaffName = "Aaron",
                             StaffPhoneNo = 87654321,
@@ -804,8 +668,6 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S3456789F",
                             StaffName = "Vedal",
                             StaffPhoneNo = 76543210,
@@ -814,8 +676,6 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S4567890F",
                             StaffName = "Marciana",
                             StaffPhoneNo = 65432109,
@@ -824,8 +684,6 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DateUpdated = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S5678901F",
                             StaffName = "Mark",
                             StaffPhoneNo = 54321098,

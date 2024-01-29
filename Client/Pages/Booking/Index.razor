@@ -1,7 +1,8 @@
 ﻿@page "/bookings/"
 @inject HttpClient _client
 @inject IJSRuntime js
-@attribute [Authorize]
+@attribute [Authorize]
+@implements IDisposable
 
 <h3 class"card-title">Bookings</h3>
 <br />
@@ -20,7 +21,7 @@
 }
 else
 {
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="bookingsTable">
         <thead>
             <tr>
                 <th>Branch Id</th>
@@ -42,7 +43,7 @@ else
                     <td>@booking.BookDiningType</td>
                     <td>@booking.BookAddNote</td>
                     <td>@booking.CustomerId</td>
-                    <td>@booking.DateCreated.Date.ToString("dd MMMM yyyy")</td>
+                    @*<td>@booking.DateCreated.Date.ToString("dd MMMM yyyy")</td>*@
                     <td>@(booking.BookDate != null ? booking.BookDate.ToString() : "To be determined")</td>
                     
                     <td>@booking.BookTime</td>
@@ -71,11 +72,22 @@ else
 
 @code {
     private List<Booking>? Bookings;
+    private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
 
     protected async override Task OnInitializedAsync()
     {
-        Bookings = await _client.GetFromJsonAsync<List<Booking>>("api/bookings");
         Bookings = await _client.GetFromJsonAsync<List<Booking>>($"{Endpoints.BookingsEndpoint}");
+    }
+
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#bookingsTable");
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#bookingsTable");
     }
 
     async Task Delete(int bookingId)
