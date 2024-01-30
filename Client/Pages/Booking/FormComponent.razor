@@ -1,5 +1,5 @@
 ﻿@inject HttpClient _client
-@*
+
 <EditForm Model="@booking" OnValidSubmit="OnValidSubmit">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -96,7 +96,7 @@
             </button>
         }
     <BackToList Target="bookings"/>
-</EditForm>*@
+</EditForm>
 @code {
     [Parameter] public Booking? booking { get; set; }
     [Parameter] public string ButtonText { get; set; } = "Save";
