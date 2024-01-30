@@ -1,0 +1,55 @@
+﻿<EditForm Model="@branch" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+     <fieldset disabled ="@Disabled">
+        <div class="form-group">
+            <label>Branch Name: </label>
+            <div>
+                <InputText @bind-Value="@branch.BranchName" class="form-control" />
+                <ValidationMessage For="@(() => branch.BranchName)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Branch Address: </label>
+            <div>
+                <InputText @bind-Value="@branch.BranchAddress" class="form-control" />
+                <ValidationMessage For="@(() => branch.BranchAddress)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Branch Capacity: </label>
+            <div>
+                <InputNumber @bind-Value="@branch.BranchCapacity" class="form-control" />
+                <ValidationMessage For="@(() => branch.BranchCapacity)" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Branch Phone Number: </label>
+            <div>
+                <InputNumber @bind-Value="@branch.BranchPhoneNo" class="form-control" />
+                <ValidationMessage For="@(() => branch.BranchPhoneNo)" />
+            </div>
+        </div>
+    </fieldset>
+
+    <br />
+    <br />
+        @if (!Disabled)
+        {
+            <button type="submit" class="btn btn-success btn-block">
+                @ButtonText
+            </button>
+        }
+        <BackToList Target="branches" />
+</EditForm>
+
+@code{
+    [Parameter] public Branch? branch { get; set; }
+    [Parameter] public string ButtonText { get; set; } = "Save";
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+    [Parameter] public bool Disabled { get; set; } = false;
+
+}

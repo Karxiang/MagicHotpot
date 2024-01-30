@@ -1,0 +1,22 @@
+﻿@page "/branches/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+<h3 class="card-title">Create New Branch</h3>
+<hr />
+<br />
+
+<FormComponent ButtonText="Create Branches" branches="branches" OnValidSubmit="@CreateBranch" />
+
+
+
+@code {
+    Branch branch = new Branch();
+
+    private async Task CreateBranch()
+    {
+        await _client.PostAsJsonAsync(Endpoints.BranchesEndpoint, branch);
+        _navManager.NavigateTo("/branches/");
+    }
+
+}

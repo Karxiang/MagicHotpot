@@ -1,0 +1,29 @@
+﻿@page "/staffs/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+
+<h3 class="card-title">Create New Staff</h3>
+<hr />
+<br />
+<FormComponent ButtonText="Create Staff" staff="staff" OnValidSubmit="@CreateStaff" />
+
+
+@code {
+    // do for Staff, Customer, OrderItem and Review
+    Staff staff = new Staff();
+
+    private IList<Branch>? Branches;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
+    }
+
+    private async Task CreateStaff()
+    {
+        await _client.PostAsJsonAsync(Endpoints.StaffsEndpoint, staff);
+        _navManager.NavigateTo("/staffs/");
+    }
+
+}

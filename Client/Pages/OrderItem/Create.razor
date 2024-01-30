@@ -1,0 +1,32 @@
+﻿@page "/orderitems/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+
+
+<h3 class="card-title">Create New OrderItem</h3>
+<hr />
+<br />
+
+<FormComponent ButtonText="Create OrderItem" orderItem="orderItem" OnValidSubmit="@CreateOrderItem" />
+
+
+@code {
+    // do for OrderItem, Customer, OrderItem and Review
+    OrderItem orderitem = new OrderItem();
+
+    private IList<Food>? Foods;
+    private IList<OrderItem>? OrderItems;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Foods = await _client.GetFromJsonAsync<List<Food>>($"{Endpoints.FoodsEndpoint}");
+        OrderItems = await _client.GetFromJsonAsync<List<OrderItem>>($"{Endpoints.OrderItemsEndpoint}");
+    }
+
+    private async Task CreateOrderItem()
+    {
+        await _client.PostAsJsonAsync(Endpoints.OrderItemsEndpoint, orderitem);
+        _navManager.NavigateTo("/orderItems/");
+    }
+
+}
