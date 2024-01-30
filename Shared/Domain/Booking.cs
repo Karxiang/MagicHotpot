@@ -10,7 +10,7 @@ using System.Collections.Generic;
 
 namespace FullSD.Shared.Domain
 {
-    public class Booking : BaseDomainModel, IValidatableObject
+    public class Booking : BaseDomainModel
     {
         [Required]
 		[Range(1, 12, ErrorMessage = "Party size must be between 1 and 12.")]
@@ -33,11 +33,8 @@ namespace FullSD.Shared.Domain
         public virtual Staff? Staff { get; set; }
 		[Required]
         public int? StaffId { get; set; }
+		
 
-		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }
 //        public int? OrderQty {  get; set; }
