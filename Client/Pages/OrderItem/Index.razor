@@ -28,7 +28,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var orderItem in OrderItems)
+            @foreach (var orderItem in OrderItems.Where(c=>c.BookID == id))
             {
                 <tr>
                     <td>@orderItem.Id</td>
@@ -43,10 +43,6 @@ else
                         <a href="/orderItems/edit/@orderItem.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
-
-                        <button class="btn btn-primary" @onclick="@(()=>Delete(orderItem.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
                     </td>
                 </tr>
             }
@@ -55,9 +51,9 @@ else
 }
 
 <br/>
-<a href="/bookings/" class="btn btn-outline-dark btn-block">
+<a href="/bookings/view/@id" class="btn btn-outline-dark btn-block">
     <span class="oi oi-arrow-left"></span>
-    Back To Booking List
+    Back To View Booking
 </a>
 
 @code {
