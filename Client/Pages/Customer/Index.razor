@@ -67,7 +67,6 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        Customers = await _client.GetFromJsonAsync<List<Customer>>("api/customers");
         Customers = await _client.GetFromJsonAsync<List<Customer>>($"{Endpoints.CustomersEndpoint}");
     }
 

@@ -22,6 +22,7 @@ else
             <tr>
                     <th>Name</th>
                     <th>Staff IC No</th>
+                    <th>Branch</th>
                     <th>Position</th>
                     <th>PhoneNo</th>
                     <th>DoB</th>
@@ -35,6 +36,7 @@ else
                 <tr>
                     <td>@staff.StaffName</td>
                     <td>@staff.StaffIcNo</td>
+                    <td>@staff.Branch.BranchName</td>
                     <td>@staff.StaffPostion</td>
                     <td>@staff.StaffPhoneNo</td>
                     <td>@staff.StaffDOB</td>
@@ -64,11 +66,12 @@ else
 
 @code {
     private List<Staff>? Staffs;
+    private List<Branch>? Branches;
 
     protected async override Task OnInitializedAsync()
     {
-        Staffs = await _client.GetFromJsonAsync<List<Staff>>("api/staffs");
         Staffs = await _client.GetFromJsonAsync<List<Staff>>($"{Endpoints.StaffsEndpoint}");
+        Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
     }
 
     async Task Delete(int staffId)

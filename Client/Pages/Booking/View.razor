@@ -6,6 +6,13 @@
 
 <FormComponent booking="booking" Disabled="true" />
 
+<br/>
+
+<a href="/orderItems/@booking.Id" class="btn btn-outline-dark btn-block">
+    <span class="oi oi-arrow-right"></span>
+    Go To OrderItems
+</a>
+
 @code {
     [Parameter] public int id { get; set; }
     Booking? booking = new Booking();

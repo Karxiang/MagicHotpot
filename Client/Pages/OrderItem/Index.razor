@@ -1,4 +1,4 @@
-﻿@page "/orderItems/"
+﻿@page "/orderItems/{id:int}"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
@@ -22,7 +22,7 @@ else
             <tr>
                     <th>OrderItem Id</th>
                     <th>Order qty</th>
-                    <th>Food ID</th>
+                    <th>Food</th>
                     <th>Booking ID</th>
                     <th>Actions</th>
             </tr>
@@ -33,7 +33,7 @@ else
                 <tr>
                     <td>@orderItem.Id</td>
                     <td>@orderItem.OrderQty</td>
-                    <td>@orderItem.FoodID</td>
+                    <td>@orderItem.Food.FoodName</td>
                     <td>@orderItem.BookID</td>
                     <td>
                         <a href="/orderItems/view/@orderItem.Id" class="btn btn-primary">
@@ -54,13 +54,22 @@ else
     </table>
 }
 
+<br/>
+<a href="/bookings/" class="btn btn-outline-dark btn-block">
+    <span class="oi oi-arrow-left"></span>
+    Back To Booking List
+</a>
+
 @code {
     private List<OrderItem>? OrderItems;
+    private List<Food>? Foods;
+    Booking? booking = new Booking();
+    [Parameter] public int id { get; set; }
 
     protected async override Task OnInitializedAsync()
     {
-        OrderItems = await _client.GetFromJsonAsync<List<OrderItem>>("api/orderItems");
         OrderItems = await _client.GetFromJsonAsync<List<OrderItem>>($"{Endpoints.OrderItemsEndpoint}");
+        Foods = await _client.GetFromJsonAsync<List<Food>>($"{Endpoints.FoodsEndpoint}");
     }
 
     async Task Delete(int orderItemId)

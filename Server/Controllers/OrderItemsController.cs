@@ -33,7 +33,7 @@ namespace FullSD.Server.Controllers
         {
 
             //return await _context.OrderItems.ToListAsync();
-            var orderItems = await _unitOfWork.OrderItems.GetAll();
+            var orderItems = await _unitOfWork.OrderItems.GetAll(includes: q => q.Include(x => x.Booking).Include(x => x.Food));
             return Ok(orderItems);
         }
 

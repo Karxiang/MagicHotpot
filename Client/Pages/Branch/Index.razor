@@ -64,7 +64,6 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        Branches = await _client.GetFromJsonAsync<List<Branch>>("api/branches");
         Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
     }
 

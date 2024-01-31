@@ -24,7 +24,7 @@ else
     <table class="table table-responsive" id="bookingsTable">
         <thead>
             <tr>
-                <th>Branch Id</th>
+                <th>Branch</th>
                 <th>Party Size</th>
                 <th>Dining Type</th>
                 <th>Note</th>
@@ -38,11 +38,11 @@ else
             @foreach (var booking in Bookings)
             {
                 <tr>
-                    <td>@booking.BranchId</td>
+                    <td>@booking.Branch.BranchName</td>
                     <td>@booking.BookPartySize</td>
                     <td>@booking.BookDiningType</td>
                     <td>@booking.BookAddNote</td>
-                    <td>@booking.CustomerId</td>
+                    <td>@booking.Customer.CustomerName</td>
                     <td>@(booking.BookDate != null ? booking.BookDate.ToString() : "To be determined")</td>                   
                     <td>@booking.BookTime</td>
                     <td>
@@ -53,10 +53,6 @@ else
                         <a href="/bookings/edit/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
-
-                        <button class="btn btn-primary" @onclick="@(()=>Delete(booking.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
                     </td>
                 </tr>
             }
@@ -70,11 +66,15 @@ else
 
 @code {
     private List<Booking>? Bookings;
+    private List<Customer>? Customers;
+    private List<Branch>? Branches;
     private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
 
     protected async override Task OnInitializedAsync()
     {
         Bookings = await _client.GetFromJsonAsync<List<Booking>>($"{Endpoints.BookingsEndpoint}");
+        Customers = await _client.GetFromJsonAsync<List<Customer>>($"{Endpoints.CustomersEndpoint}");
+        Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
     }
 
 
