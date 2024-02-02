@@ -5,11 +5,6 @@
 <h3>Edit OrderItem</h3>
 
 <FormComponent ButtonText="Update" OnValidSubmit="EditOrderItem" orderItem="orderItem" />
-<br/>
-<a href="/orderItems/@id" class="btn btn-outline-dark btn-block">
-    <span class="oi oi-arrow-left"></span>
-    Back To List
-</a>
 
 @code {
     [Parameter] public int id { get; set; }
