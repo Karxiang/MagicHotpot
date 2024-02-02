@@ -39,11 +39,11 @@ else
                     <td>@staff.Branch.BranchName</td>
                     <td>@staff.StaffPostion</td>
                     <td>@staff.StaffPhoneNo</td>
-                    @* <td>@staff.StaffDOB.Value.Date.ToString("dd MMMM yyyy")</td>
-                    <td>@staff.StaffJoinDate.Value.Date.ToString("dd MMMM yyyy")</td> *@
+                    <td>@staff.StaffDOB.Value.Date.ToString("dd MMMM yyyy")</td>
+                    <td>@staff.StaffJoinDate.Value.Date.ToString("dd MMMM yyyy")</td>
                     @* comment above 2 lines if either date of birth or join date is empty and uncomment 2 lines below to edit dates*@
-                    <td>@staff.StaffDOB</td>
-                    <td>@staff.StaffJoinDate</td>
+                    @* <td>@staff.StaffDOB</td>
+                    <td>@staff.StaffJoinDate</td> *@
                     <td>
                         <a href="/staffs/view/@staff.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
