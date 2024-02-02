@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FullSD.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class finaldB : Migration
+    public partial class newdb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -300,7 +300,7 @@ namespace FullSD.Server.Migrations
                     BookDiningType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BookAddNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BookDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BookTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BookTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     BranchId = table.Column<int>(type: "int", nullable: false),
                     StaffId = table.Column<int>(type: "int", nullable: false)
@@ -393,7 +393,7 @@ namespace FullSD.Server.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "740b2717-8809-469c-89a5-45128d2b7b70", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAENHaVNeofibbW8oMM79OiGiEfLaDHNyci17VNaxv0f0cG2pPkcdyzk/orFletIUZYA==", null, false, "3adbb520-4d37-4585-b2a4-5ff5d78175f5", false, "admin@localhost.com" });
+                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "d5251561-c4ae-48ee-a7f8-70b4d273f050", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEPNByaQIoz2pibgocxPo9pEgcwB2BYfPmWb+yvr/EzEhPU6KFQlJoch6P9BGumiw/A==", null, false, "543e487e-7f7f-4679-aef3-58664fbb6ed7", false, "admin@localhost.com" });
 
             migrationBuilder.InsertData(
                 table: "Branches",

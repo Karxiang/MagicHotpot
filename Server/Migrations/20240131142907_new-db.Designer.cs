@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240129023020_finaldB")]
-    partial class finaldB
+    [Migration("20240131142907_new-db")]
+    partial class newdb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "740b2717-8809-469c-89a5-45128d2b7b70",
+                            ConcurrencyStamp = "d5251561-c4ae-48ee-a7f8-70b4d273f050",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -249,9 +249,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENHaVNeofibbW8oMM79OiGiEfLaDHNyci17VNaxv0f0cG2pPkcdyzk/orFletIUZYA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPNByaQIoz2pibgocxPo9pEgcwB2BYfPmWb+yvr/EzEhPU6KFQlJoch6P9BGumiw/A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3adbb520-4d37-4585-b2a4-5ff5d78175f5",
+                            SecurityStamp = "543e487e-7f7f-4679-aef3-58664fbb6ed7",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -280,8 +280,8 @@ namespace FullSD.Server.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("BookTime")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("BookTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("BranchId")
                         .IsRequired()

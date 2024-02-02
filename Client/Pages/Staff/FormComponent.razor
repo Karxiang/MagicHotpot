@@ -46,10 +46,10 @@
     </div>
 
     <div class="form-group">
-        <label>Branch ID: </label>
+        <label>Branch: </label>
         <div>
             <InputSelect @bind-Value="staff.BranchId" class="form-control">
-                <option value="">-- Select BranchID --</option>
+                <option value="">-- Select Branch --</option>
                 @if (Branches != null)
                 {
                     foreach (var branch in Branches)

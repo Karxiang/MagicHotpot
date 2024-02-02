@@ -43,8 +43,8 @@ else
                     <td>@booking.BookDiningType</td>
                     <td>@booking.BookAddNote</td>
                     <td>@booking.Customer.CustomerName</td>
-                    <td>@(booking.BookDate != null ? booking.BookDate.ToString() : "To be determined")</td>                   
-                    <td>@booking.BookTime</td>
+                    <td>@(booking.BookDate != null ? booking.BookDate.ToString() : "To be determined")</td>
+                    <td>@(booking.BookTime != null ? booking.BookTime.ToString() : "To be determined")</td>
                     <td>
                         <a href="/bookings/view/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -68,7 +68,6 @@ else
     private List<Booking>? Bookings;
     private List<Customer>? Customers;
     private List<Branch>? Branches;
-    private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
 
     protected async override Task OnInitializedAsync()
     {
