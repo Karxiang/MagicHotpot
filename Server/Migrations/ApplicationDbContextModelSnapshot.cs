@@ -238,7 +238,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "49733588-d28f-4a1d-b841-c0994c436548",
+                            ConcurrencyStamp = "b282cb9a-82ff-4b30-9237-c0a247c9fa28",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -246,9 +246,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEO9saMQ9gKOsvdud+JX3eSLFFk2V+YxQnaG6yAJRF8GJ3xD+EikJea2/4cjKImgrcg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAELhnjNnYoypD8w0zF6SMG9TSv22pdCZudUueoAk1FYcQiRFjh7Oo/sQV/m32TgH9uA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a0e6d582-2cee-4d8e-a09e-82d3c4e5911b",
+                            SecurityStamp = "37f60b5d-435d-411f-ab52-741805efb135",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -653,7 +653,9 @@ namespace FullSD.Server.Migrations
                         {
                             Id = 1,
                             BranchId = 1,
+                            StaffDOB = new DateTime(2005, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S1234567F",
+                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Milly",
                             StaffPhoneNo = 98765432,
                             StaffPostion = "Manager"
@@ -662,7 +664,9 @@ namespace FullSD.Server.Migrations
                         {
                             Id = 2,
                             BranchId = 1,
+                            StaffDOB = new DateTime(2001, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S2345678F",
+                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Aaron",
                             StaffPhoneNo = 87654321,
                             StaffPostion = "Staff"
@@ -671,7 +675,9 @@ namespace FullSD.Server.Migrations
                         {
                             Id = 3,
                             BranchId = 2,
+                            StaffDOB = new DateTime(1999, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S3456789F",
+                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Vedal",
                             StaffPhoneNo = 76543210,
                             StaffPostion = "Staff"
@@ -680,7 +686,9 @@ namespace FullSD.Server.Migrations
                         {
                             Id = 4,
                             BranchId = 3,
+                            StaffDOB = new DateTime(2002, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S4567890F",
+                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Marciana",
                             StaffPhoneNo = 65432109,
                             StaffPostion = "Staff"
@@ -689,7 +697,9 @@ namespace FullSD.Server.Migrations
                         {
                             Id = 5,
                             BranchId = 4,
+                            StaffDOB = new DateTime(1996, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S5678901F",
+                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Mark",
                             StaffPhoneNo = 54321098,
                             StaffPostion = "Staff"

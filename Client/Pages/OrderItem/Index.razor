@@ -1,4 +1,4 @@
-﻿@page "/orderItems/{id:int}"
+﻿@page "/orderItems/"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
@@ -6,7 +6,7 @@
 <h3 class"card-title">OrderItems</h3>
 <br />
 
-<a href="/orderItems/create/@id" class="btn btn-secondary">
+<a href="/orderItems/create/" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
     Create New OrderItem
 </a>
@@ -20,21 +20,21 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
-                    <th>OrderItem Id</th>
-                    <th>Order qty</th>
-                    <th>Food</th>
-                    <th>Booking ID</th>
-                    <th>Actions</th>
+                <th>Id</th>
+                <th>Booking ID</th>
+                <th>Food</th>
+                <th>Order qty</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var orderItem in OrderItems.Where(c=>c.BookID == id))
+            @foreach (var orderItem in OrderItems)
             {
                 <tr>
                     <td>@orderItem.Id</td>
-                    <td>@orderItem.OrderQty</td>
-                    <td>@orderItem.Food.FoodName</td>
                     <td>@orderItem.BookID</td>
+                    <td>@orderItem.Food.FoodName</td>
+                    <td>@orderItem.OrderQty</td>
                     <td>
                         <a href="/orderItems/view/@orderItem.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -51,16 +51,15 @@ else
 }
 
 <br/>
-<a href="/bookings/view/@id" class="btn btn-outline-dark btn-block">
+<a href="/bookings/" class="btn btn-outline-dark btn-block">
     <span class="oi oi-arrow-left"></span>
-    Back To View Booking
+    Back To Booking
 </a>
 
 @code {
     private List<OrderItem>? OrderItems;
     private List<Food>? Foods;
     Booking? booking = new Booking();
-    [Parameter] public int id { get; set; }
 
     protected async override Task OnInitializedAsync()
     {

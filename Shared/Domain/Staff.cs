@@ -27,7 +27,7 @@ namespace FullSD.Shared.Domain
 
         public DateTime? StaffDOB { get; set; }
 
-        public DateTime? StaffJoinDate { get; set; } = DateTime.Now;
+        public DateTime? StaffJoinDate { get; set; } = DateTime.Today;
 
         public virtual Branch? Branch { get; set; }
         public int? BranchId { get; set; }

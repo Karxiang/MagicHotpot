@@ -49,7 +49,7 @@
     <div class="form-group">
         <label>Join Date: </label>
         <div>
-            <InputDate @bind-Value="@staff.StaffJoinDate" class="form-control" readonly />
+            <InputDate Type="InputDateType.Date" max="@DateTime.Today.ToString("yyyy-MM-dd")" @bind-Value="@staff.StaffJoinDate" class="form-control" />
             <ValidationMessage For="@(() => staff.StaffJoinDate)" />
         </div>
     </div>

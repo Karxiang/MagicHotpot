@@ -37,8 +37,8 @@ else
                     <td>@customer.CustomerEmail</td>
                     <td>@customer.CustomerPhoneNo</td>
                     <td>@customer.CustomerAddress</td>
-                    <td>@customer.CustomerDOB</td>
-                    <td>@customer.CustomerJoinDate</td>
+                    <td>@customer.CustomerDOB.Value.Date.ToString("dd MMMM yyyy")</td>
+                    <td>@customer.CustomerJoinDate.Value.Date.ToString("dd MMMM yyyy")</td>
                     <td>
                         <a href="/customers/view/@customer.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>

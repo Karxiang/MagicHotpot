@@ -24,7 +24,8 @@ else
     <table class="table table-responsive" id="bookingsTable">
         <thead>
             <tr>
-                <th>Branch</th>
+                <th>Booking Id</th>
+                <th>Branch Name</th>
                 <th>Party Size</th>
                 <th>Dining Type</th>
                 <th>Note</th>
@@ -38,13 +39,16 @@ else
             @foreach (var booking in Bookings)
             {
                 <tr>
+                    <td>@booking.Id</td>
                     <td>@booking.Branch.BranchName</td>
                     <td>@booking.BookPartySize</td>
                     <td>@booking.BookDiningType</td>
                     <td>@booking.BookAddNote</td>
                     <td>@booking.Customer.CustomerName</td>
-                    <td>@(booking.BookDate != null ? booking.BookDate.ToString() : "To be determined")</td>
-                    <td>@(booking.BookTime != null ? booking.BookTime.ToString() : "To be determined")</td>
+                    <td>@booking.BookDate.Value.Date.ToString("dd MMMM yyyy")</td>
+                    <td>@booking.BookTime.Value.TimeOfDay.ToString()</td>
+                    @* <td>@(booking.BookDate.Value.Date.ToString("dd MMMM yyyy") != null ? booking.BookDate.ToString() : "To be determined")</td> *@
+                    @* <td>@(booking.BookTime.Value.TimeOfDay != null ? booking.BookTime.ToString() : "To be determined")</td> *@
                     <td>
                         <a href="/bookings/view/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -60,7 +64,11 @@ else
     </table>
 }
 
-
+<br/>
+<a href="/orderItems/" class="btn btn-outline-dark btn-block">
+    <span class="oi oi-arrow-right"></span>
+    Go To OrderItems
+</a>
 
 
 
@@ -68,6 +76,7 @@ else
     private List<Booking>? Bookings;
     private List<Customer>? Customers;
     private List<Branch>? Branches;
+    private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
 
     protected async override Task OnInitializedAsync()
     {
