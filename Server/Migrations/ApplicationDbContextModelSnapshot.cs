@@ -238,7 +238,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f8503824-6c14-4005-a202-c8082710e743",
+                            ConcurrencyStamp = "49733588-d28f-4a1d-b841-c0994c436548",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -246,9 +246,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAWxEfZ2GFg5rIbVivX0TuujYB6yPAFNUbBEgboGU+Blk42xf+mQaYjBHbRvo0pdYQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO9saMQ9gKOsvdud+JX3eSLFFk2V+YxQnaG6yAJRF8GJ3xD+EikJea2/4cjKImgrcg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "c4dd64f2-93fe-44b6-b161-864caffdb903",
+                            SecurityStamp = "a0e6d582-2cee-4d8e-a09e-82d3c4e5911b",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -654,7 +654,6 @@ namespace FullSD.Server.Migrations
                             Id = 1,
                             BranchId = 1,
                             StaffIcNo = "S1234567F",
-                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7076),
                             StaffName = "Milly",
                             StaffPhoneNo = 98765432,
                             StaffPostion = "Manager"
@@ -664,7 +663,6 @@ namespace FullSD.Server.Migrations
                             Id = 2,
                             BranchId = 1,
                             StaffIcNo = "S2345678F",
-                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7112),
                             StaffName = "Aaron",
                             StaffPhoneNo = 87654321,
                             StaffPostion = "Staff"
@@ -674,7 +672,6 @@ namespace FullSD.Server.Migrations
                             Id = 3,
                             BranchId = 2,
                             StaffIcNo = "S3456789F",
-                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7114),
                             StaffName = "Vedal",
                             StaffPhoneNo = 76543210,
                             StaffPostion = "Staff"
@@ -684,7 +681,6 @@ namespace FullSD.Server.Migrations
                             Id = 4,
                             BranchId = 3,
                             StaffIcNo = "S4567890F",
-                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7116),
                             StaffName = "Marciana",
                             StaffPhoneNo = 65432109,
                             StaffPostion = "Staff"
@@ -694,7 +690,6 @@ namespace FullSD.Server.Migrations
                             Id = 5,
                             BranchId = 4,
                             StaffIcNo = "S5678901F",
-                            StaffJoinDate = new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7117),
                             StaffName = "Mark",
                             StaffPhoneNo = 54321098,
                             StaffPostion = "Staff"

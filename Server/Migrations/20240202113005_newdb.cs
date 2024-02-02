@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FullSD.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class newDB : Migration
+    public partial class newdb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -393,7 +393,7 @@ namespace FullSD.Server.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "f8503824-6c14-4005-a202-c8082710e743", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEAWxEfZ2GFg5rIbVivX0TuujYB6yPAFNUbBEgboGU+Blk42xf+mQaYjBHbRvo0pdYQ==", null, false, "c4dd64f2-93fe-44b6-b161-864caffdb903", false, "admin@localhost.com" });
+                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "49733588-d28f-4a1d-b841-c0994c436548", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEO9saMQ9gKOsvdud+JX3eSLFFk2V+YxQnaG6yAJRF8GJ3xD+EikJea2/4cjKImgrcg==", null, false, "a0e6d582-2cee-4d8e-a09e-82d3c4e5911b", false, "admin@localhost.com" });
 
             migrationBuilder.InsertData(
                 table: "Branches",
@@ -443,11 +443,11 @@ namespace FullSD.Server.Migrations
                 columns: new[] { "Id", "BranchId", "StaffDOB", "StaffIcNo", "StaffJoinDate", "StaffName", "StaffPhoneNo", "StaffPostion" },
                 values: new object[,]
                 {
-                    { 1, 1, null, "S1234567F", new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7076), "Milly", 98765432, "Manager" },
-                    { 2, 1, null, "S2345678F", new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7112), "Aaron", 87654321, "Staff" },
-                    { 3, 2, null, "S3456789F", new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7114), "Vedal", 76543210, "Staff" },
-                    { 4, 3, null, "S4567890F", new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7116), "Marciana", 65432109, "Staff" },
-                    { 5, 4, null, "S5678901F", new DateTime(2024, 2, 3, 0, 8, 15, 7, DateTimeKind.Local).AddTicks(7117), "Mark", 54321098, "Staff" }
+                    { 1, 1, null, "S1234567F", null, "Milly", 98765432, "Manager" },
+                    { 2, 1, null, "S2345678F", null, "Aaron", 87654321, "Staff" },
+                    { 3, 2, null, "S3456789F", null, "Vedal", 76543210, "Staff" },
+                    { 4, 3, null, "S4567890F", null, "Marciana", 65432109, "Staff" },
+                    { 5, 4, null, "S5678901F", null, "Mark", 54321098, "Staff" }
                 });
 
             migrationBuilder.CreateIndex(
