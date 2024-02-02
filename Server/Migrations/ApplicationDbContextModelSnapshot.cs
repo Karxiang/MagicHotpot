@@ -238,7 +238,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "320c8fcf-ce21-4d6a-ad0b-65bf8070ed3a",
+                            ConcurrencyStamp = "49733588-d28f-4a1d-b841-c0994c436548",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -246,9 +246,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEHEd6ZnmqCWLbTPCSo2DJsbulzMc1LVA0CHbaeK9S/Zx6O6eDAxtmPlw1XnfAQNeQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO9saMQ9gKOsvdud+JX3eSLFFk2V+YxQnaG6yAJRF8GJ3xD+EikJea2/4cjKImgrcg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "942d3a8a-1c80-43a2-a519-4df6bce2f3de",
+                            SecurityStamp = "a0e6d582-2cee-4d8e-a09e-82d3c4e5911b",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });

@@ -23,7 +23,7 @@ namespace FullSD.Shared.Domain
 
 		public string? CustomerAddress { get; set; }
         public DateTime? CustomerDOB { get; set; }
-        public DateTime? CustomerJoinDate { get; set; }
+        public DateTime? CustomerJoinDate { get; set; } = DateTime.Now;
 
     }
 }

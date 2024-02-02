@@ -65,8 +65,11 @@ else
 
 
 @code {
+
     private List<Staff>? Staffs;
     private List<Branch>? Branches;
+    private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
+
 
     protected async override Task OnInitializedAsync()
     {
@@ -87,5 +90,6 @@ else
             }
         }
     }
+
 
 }

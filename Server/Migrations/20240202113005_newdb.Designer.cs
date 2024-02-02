@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240131142907_new-db")]
+    [Migration("20240202113005_newdb")]
     partial class newdb
     {
         /// <inheritdoc />
@@ -241,7 +241,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "d5251561-c4ae-48ee-a7f8-70b4d273f050",
+                            ConcurrencyStamp = "49733588-d28f-4a1d-b841-c0994c436548",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -249,9 +249,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPNByaQIoz2pibgocxPo9pEgcwB2BYfPmWb+yvr/EzEhPU6KFQlJoch6P9BGumiw/A==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEO9saMQ9gKOsvdud+JX3eSLFFk2V+YxQnaG6yAJRF8GJ3xD+EikJea2/4cjKImgrcg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "543e487e-7f7f-4679-aef3-58664fbb6ed7",
+                            SecurityStamp = "a0e6d582-2cee-4d8e-a09e-82d3c4e5911b",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -655,6 +655,7 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 1,
+                            BranchId = 1,
                             StaffIcNo = "S1234567F",
                             StaffName = "Milly",
                             StaffPhoneNo = 98765432,
@@ -663,6 +664,7 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 2,
+                            BranchId = 1,
                             StaffIcNo = "S2345678F",
                             StaffName = "Aaron",
                             StaffPhoneNo = 87654321,
@@ -671,6 +673,7 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 3,
+                            BranchId = 2,
                             StaffIcNo = "S3456789F",
                             StaffName = "Vedal",
                             StaffPhoneNo = 76543210,
@@ -679,6 +682,7 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 4,
+                            BranchId = 3,
                             StaffIcNo = "S4567890F",
                             StaffName = "Marciana",
                             StaffPhoneNo = 65432109,
@@ -687,6 +691,7 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 5,
+                            BranchId = 4,
                             StaffIcNo = "S5678901F",
                             StaffName = "Mark",
                             StaffPhoneNo = 54321098,

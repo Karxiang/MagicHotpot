@@ -40,10 +40,20 @@
     <div class="form-group">
         <label>Date Of Birth: </label>
         <div>
-            <InputDate @bind-Value="@staff.StaffDOB" class="form-control" />
+            <InputDate Type="InputDateType.Date" max="@DateTime.Today.ToString("yyyy-MM-dd")" @bind-Value="@staff.StaffDOB" class="form-control" />
             <ValidationMessage For="@(() => staff.StaffDOB)" />
         </div>
     </div>
+
+
+    <div class="form-group">
+        <label>Join Date: </label>
+        <div>
+            <InputDate @bind-Value="@staff.StaffJoinDate" class="form-control" readonly />
+            <ValidationMessage For="@(() => staff.StaffJoinDate)" />
+        </div>
+    </div>
+
 
     <div class="form-group">
         <label>Branch: </label>
@@ -80,10 +90,12 @@
     [Parameter] public bool Disabled { get; set; } = false;
 
 
+
     private IList<Branch>? Branches;
 
     protected async override Task OnInitializedAsync()
     {
         Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
     }
+
 }
