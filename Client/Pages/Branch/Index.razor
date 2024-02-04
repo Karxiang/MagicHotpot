@@ -2,6 +2,7 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
+@implements IDisposable
 
 <h3 class"card-title">Branches</h3>
 <br />
@@ -18,13 +19,13 @@
 }
 else
 {
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="branchesTable">
         <thead>
             <tr>
                 <th>Branch Name</th>
                 <th>Address</th>
                 <th>Capacity</th>
-                <th>Branch Phone Number</th>
+                <th>Phone Number</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -64,8 +65,17 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        Branches = await _client.GetFromJsonAsync<List<Branch>>("api/branches");
         Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#branchesTable");
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#branchesTable");
     }
 
     async Task Delete(int branchId)

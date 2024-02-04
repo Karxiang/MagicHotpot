@@ -22,6 +22,8 @@ namespace FullSD.Server.Configurations.Entities
                 StaffName = "Milly",
                 StaffPostion = "Manager",
                 StaffPhoneNo = 98765432,
+                BranchId = 1,
+                StaffDOB = new DateTime(2005,03,18),
             },
             new Staff
             {
@@ -30,7 +32,9 @@ namespace FullSD.Server.Configurations.Entities
                 StaffName = "Aaron",
                 StaffPostion = "Staff",
                 StaffPhoneNo = 87654321,
-             },
+                BranchId = 1,
+                StaffDOB = new DateTime(2001, 06, 15),
+            },
             new Staff
             {
                 Id = 3,
@@ -38,6 +42,8 @@ namespace FullSD.Server.Configurations.Entities
                 StaffName = "Vedal",
                 StaffPostion = "Staff",
                 StaffPhoneNo = 76543210,
+                BranchId = 2,
+                StaffDOB = new DateTime(1999, 05, 18),
             },
             new Staff
             {
@@ -46,6 +52,8 @@ namespace FullSD.Server.Configurations.Entities
                 StaffName = "Marciana",
                 StaffPostion = "Staff",
                 StaffPhoneNo = 65432109,
+                BranchId = 3,
+                StaffDOB = new DateTime(2002, 08, 20),
             },
             new Staff
             {
@@ -54,6 +62,8 @@ namespace FullSD.Server.Configurations.Entities
                 StaffName = "Mark",
                 StaffPostion = "Staff",
                 StaffPhoneNo = 54321098,
+                BranchId = 4,
+                StaffDOB = new DateTime(1996, 11, 10),
             }
             );
         }

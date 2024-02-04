@@ -1,14 +1,17 @@
 ﻿@page "/branches/view/{id:int}"
 @inject HttpClient _client
 @inject NavigationManager _navManager
+
 <h3>View Branches</h3>
+
 <FormComponent branch="branch" Disabled="true" />
+
 @code {
-[Parameter] public int id { get; set; }
-Branch? branch = new Branch();
-protected async override Task OnParametersSetAsync()
-{
-branch = await
-_client.GetFromJsonAsync<Branch>($"{Endpoints.BranchesEndpoint}/{id}");
-}
+    [Parameter] public int id { get; set; }
+    Branch? branch = new Branch();
+
+    protected async override Task OnParametersSetAsync()
+    {
+        branch = await _client.GetFromJsonAsync<Branch>($"{Endpoints.BranchesEndpoint}/{id}");
+    }
 }

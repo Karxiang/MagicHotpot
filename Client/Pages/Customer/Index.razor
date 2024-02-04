@@ -2,6 +2,7 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
+@implements IDisposable
 
 <h3 class"card-title">Customers</h3>
 <br />
@@ -17,7 +18,7 @@
 }
 else
 {
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="customersTable">
         <thead>
             <tr>
                     <th>Customer Name</th>
@@ -37,8 +38,8 @@ else
                     <td>@customer.CustomerEmail</td>
                     <td>@customer.CustomerPhoneNo</td>
                     <td>@customer.CustomerAddress</td>
-                    <td>@customer.CustomerDOB</td>
-                    <td>@customer.CustomerJoinDate</td>
+                    <td>@customer.CustomerDOB.Value.Date.ToString("dd MMMM yyyy")</td>
+                    <td>@customer.CustomerJoinDate.Value.Date.ToString("dd MMMM yyyy")</td>
                     <td>
                         <a href="/customers/view/@customer.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -67,8 +68,17 @@ else
 
     protected async override Task OnInitializedAsync()
     {
-        Customers = await _client.GetFromJsonAsync<List<Customer>>("api/customers");
         Customers = await _client.GetFromJsonAsync<List<Customer>>($"{Endpoints.CustomersEndpoint}");
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#customersTable");
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#customersTable");
     }
 
     async Task Delete(int customerId)

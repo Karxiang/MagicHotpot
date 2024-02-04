@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FullSD.Server.Migrations
 {
     /// <inheritdoc />
-    public partial class finaldB : Migration
+    public partial class finaldb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -300,10 +300,10 @@ namespace FullSD.Server.Migrations
                     BookDiningType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BookAddNote = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BookDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    BookTime = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    BookTime = table.Column<DateTime>(type: "datetime2", nullable: true),
                     CustomerId = table.Column<int>(type: "int", nullable: false),
                     BranchId = table.Column<int>(type: "int", nullable: false),
-                    StaffId = table.Column<int>(type: "int", nullable: false)
+                    StaffId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -324,8 +324,7 @@ namespace FullSD.Server.Migrations
                         name: "FK_Bookings_Staffs_StaffId",
                         column: x => x.StaffId,
                         principalTable: "Staffs",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -393,7 +392,7 @@ namespace FullSD.Server.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "740b2717-8809-469c-89a5-45128d2b7b70", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAENHaVNeofibbW8oMM79OiGiEfLaDHNyci17VNaxv0f0cG2pPkcdyzk/orFletIUZYA==", null, false, "3adbb520-4d37-4585-b2a4-5ff5d78175f5", false, "admin@localhost.com" });
+                values: new object[] { "be04dd60-8599-41c2-8096-67868766306c", 0, "904008b2-478f-4a65-9400-386f2242e7d9", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAIAAYagAAAAEDJSShVE7qinmxAqgm26Ba/zL9AO/duAV6RQCSZKlQzwR33CzA7Uu3l+LjtQz6mxtA==", null, false, "c0081624-9180-4307-b991-92db678f0810", false, "admin@localhost.com" });
 
             migrationBuilder.InsertData(
                 table: "Branches",
@@ -434,21 +433,21 @@ namespace FullSD.Server.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "89e4ba74-bec1-4947-b652-49587cc7d8b9", "be04dd60-8599-41c2-8096-67868766306c" });
+
+            migrationBuilder.InsertData(
                 table: "Staffs",
                 columns: new[] { "Id", "BranchId", "StaffDOB", "StaffIcNo", "StaffJoinDate", "StaffName", "StaffPhoneNo", "StaffPostion" },
                 values: new object[,]
                 {
-                    { 1, null, null, "S1234567F", null, "Milly", 98765432, "Manager" },
-                    { 2, null, null, "S2345678F", null, "Aaron", 87654321, "Staff" },
-                    { 3, null, null, "S3456789F", null, "Vedal", 76543210, "Staff" },
-                    { 4, null, null, "S4567890F", null, "Marciana", 65432109, "Staff" },
-                    { 5, null, null, "S5678901F", null, "Mark", 54321098, "Staff" }
+                    { 1, 1, new DateTime(2005, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "S1234567F", new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local), "Milly", 98765432, "Manager" },
+                    { 2, 1, new DateTime(2001, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), "S2345678F", new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local), "Aaron", 87654321, "Staff" },
+                    { 3, 2, new DateTime(1999, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), "S3456789F", new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local), "Vedal", 76543210, "Staff" },
+                    { 4, 3, new DateTime(2002, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), "S4567890F", new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local), "Marciana", 65432109, "Staff" },
+                    { 5, 4, new DateTime(1996, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), "S5678901F", new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local), "Mark", 54321098, "Staff" }
                 });
-
-            migrationBuilder.InsertData(
-                table: "AspNetUserRoles",
-                columns: new[] { "RoleId", "UserId" },
-                values: new object[] { "89e4ba74-bec1-4947-b652-49587cc7d8b9", "be04dd60-8599-41c2-8096-67868766306c" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

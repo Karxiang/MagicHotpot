@@ -1,0 +1,118 @@
+﻿@page "/bookings/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+@implements IDisposable
+
+<h3 class"card-title">Customer Bookings</h3>
+<br />
+
+<a href="/bookings/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Booking
+</a>
+<br />
+<br />
+
+
+@if (Bookings == null)
+{
+    <div class="alert alert-info">Loading Bookings...</div>
+}
+else
+{
+    <table class="table table-responsive" id="bookingsTable">
+        <thead>
+            <tr>
+                <th>Booking Id</th>
+                <th>Branch Name</th>
+                <th>Party Size</th>
+                <th>Dining Type</th>
+                <th>Note</th>
+                <th>Customer Name</th>
+                <th>BookDate</th>
+                <th>BookTime</th>
+                <th>Actions</th>
+                <th>Add Order Items</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var booking in Bookings)
+            {
+                <tr>
+                    <td>@booking.Id</td>
+                    <td>@booking.Branch.BranchName</td>
+                    <td>@booking.BookPartySize</td>
+                    <td>@booking.BookDiningType</td>
+                    <td>@booking.BookAddNote</td>
+                    <td>@booking.Customer.CustomerName</td>
+                    <td>@booking.BookDate.Value.Date.ToString("dd MMMM yyyy")</td>
+                    <td>@booking.BookTime.Value.ToString("h:mm tt").ToUpper()</td>
+                    <td>
+                        <a href="/bookings/view/@booking.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+
+                        <a href="/bookings/edit/@booking.Id" class="btn btn-primary">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/orderItems/" class="btn btn-outline-dark btn-block">
+                            <span class="oi oi-arrow-right"></span>
+                            Add OrderItems
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<br/>
+<br/>
+<a href="/bookings/staff" class="btn btn-secondary">
+    <span class="oi oi-right"></span>
+    Go To Staff Bookings
+</a>
+
+
+@code {
+    private List<Booking>? Bookings;
+    private List<Customer>? Customers;
+    private List<Branch>? Branches;
+    private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
+
+    protected async override Task OnInitializedAsync()
+    {
+        Bookings = await _client.GetFromJsonAsync<List<Booking>>($"{Endpoints.BookingsEndpoint}");
+        Customers = await _client.GetFromJsonAsync<List<Customer>>($"{Endpoints.CustomersEndpoint}");
+        Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
+    }
+
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#bookingsTable");
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#bookingsTable");
+    }
+
+    async Task Delete(int bookingId)
+    {
+        if (Bookings != null)
+        {
+            var booking = Bookings.First(q => q.Id == bookingId);
+            var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {booking.Id}?");
+            if (confirm)
+            {
+                await _client.DeleteAsync($"{Endpoints.BookingsEndpoint}/{bookingId}");
+                await OnInitializedAsync();
+            }
+        }
+    }
+
+}

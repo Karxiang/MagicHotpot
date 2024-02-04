@@ -1,4 +1,4 @@
-﻿@page "/orderitems/create"
+﻿@page "/orderItems/create/"
 @inject HttpClient _client
 @inject NavigationManager _navManager
 
@@ -12,7 +12,7 @@
 
 @code {
     // do for OrderItem, Customer, OrderItem and Review
-    OrderItem orderitem = new OrderItem();
+    OrderItem orderItem = new OrderItem();
 
     private IList<Food>? Foods;
     private IList<OrderItem>? OrderItems;
@@ -25,7 +25,7 @@
 
     private async Task CreateOrderItem()
     {
-        await _client.PostAsJsonAsync(Endpoints.OrderItemsEndpoint, orderitem);
+        await _client.PostAsJsonAsync(Endpoints.OrderItemsEndpoint, orderItem);
         _navManager.NavigateTo("/orderItems/");
     }
 

@@ -1,15 +1,124 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager _navManager
+@inject HttpClient _client
+
+
 
 <div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
-
     <main>
+        <div class="top-row banner">
+        <a href="/">
+            <img src="images/icon.jpg" id="logo">
+        </a>
+
+        <AuthorizeView>
+            <Authorized>
+                <div>
+                    <a class="authentication-size" href="authentication/profile" Match="NavLinkMatch.All">
+                        <span class="oi oi-person" aria-hidden="true"></span> Hello, @context.User.Identity?.Name!
+                    </a>
+                </div>
+                <div>
+                    <a class="nav-font">
+                        <a class="nav-container" href="#" @onclick="BeginLogOut">
+                            <span class="oi oi-account-logout" aria-hidden="true"></span> Log Out
+                        </a>
+                    </a>
+                </div>
+            </Authorized>
+            <NotAuthorized>
+                <div>
+                    <a class="nav-container" href="authentication/Register" Match="NavLinkMatch.All">
+                        <span class="oi oi-person" aria-hidden="true"></span> Register
+                    </a>
+                </div>
+
+                    <div>
+                        <a class="nav-container" href="authentication/login" Match="NavLinkMatch.All">
+                            <span class="oi oi-account-login" aria-hidden="true"></span> Log in
+                        </a>
+                    </div>
+            </NotAuthorized>
+        </AuthorizeView>
+        </div>
+
+
+        <div class="navbar ps-5">
+
+
+
+            <div class="nav-font">
+                <a href="bookings" class="nav-container">
+                <span class="oi material-symbols-light:rate-review-outline-rounded" aria-hidden="true"></span>
+                    Bookings
+                </a>
+            </div>
+
+            <div class="nav-font">
+                <a href="branches" class="nav-container">
+                    <span class="oi material-symbols-light:rate-review-outline-rounded" aria-hidden="true"></span>
+                    Branches
+                </a>
+            </div>
+
+            <div class="nav-font">
+                <a href="customers" class="nav-container">
+                    <span class="oi material-symbols-light:rate-review-outline-rounded" aria-hidden="true"></span>
+                    Customers
+                </a>
+            </div>
+
+            <div class="nav-font">
+                <a href="foods" class="nav-container">
+                    <span class="oi material-symbols-light:rate-review-outline-rounded" aria-hidden="true"></span>
+                    Foods
+                </a>
+            </div>
+
+
+            <div class="nav-font">
+                <a href="reviews" class="nav-container">
+                    <span class="oi material-symbols-light:rate-review-outline-rounded" aria-hidden="true"></span>
+                    Reviews
+                </a>
+            </div>
+
+             <div class="nav-font">
+                <a href="staffs" class="nav-container">
+                <span class="oi material-symbols-light:rate-review-outline-rounded" aria-hidden="true"></span>
+                    Staffs
+                </a>
+            </div>
+            <div class="nav-font">
+                <a href="about" class="nav-container">
+                    <span class="oi material-symbols-light:rate-review-outline-rounded" aria-hidden="true"></span>
+                    About Magic Hotpot
+                </a>
+            </div>
+
+
+
+            </div>
+
 
 
         <article class="content px-4">
             @Body
         </article>
+
     </main>
 </div>
+
+@code{
+    private bool collapseNavMenu = true;
+    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+
+    private void BeginLogOut(){
+        _navManager.NavigateToLogout("authentication/logout");
+    }
+
+}

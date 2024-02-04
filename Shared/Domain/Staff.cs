@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace FullSD.Shared.Domain
         public string? StaffPostion { get; set; }
 		[Required]
 		[DataType(DataType.PhoneNumber)]
-		[RegularExpression(@"(6|8|9)\d{7}", ErrorMessage = "Invalid Phone Number")]
+		[RegularExpression(@"(6|8|9)\d{7}", ErrorMessage = "Invalid Phone Number(Must start with 6,8 or 9)")]
 		public int? StaffPhoneNo { get; set; }
+
         public DateTime? StaffDOB { get; set; }
-        public DateTime? StaffJoinDate { get; set; }
+
+        public DateTime? StaffJoinDate { get; set; } = DateTime.Today;
 
         public virtual Branch? Branch { get; set; }
         public int? BranchId { get; set; }

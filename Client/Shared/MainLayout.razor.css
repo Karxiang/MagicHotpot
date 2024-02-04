@@ -9,15 +9,15 @@ main {
 }
 
 .sidebar {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    /*background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);*/
+    background-color: #e3d5fa;
 }
 
 .top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 3.5rem;
     display: flex;
+    z-index:999;
     align-items: center;
 }
 
@@ -35,6 +35,8 @@ main {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+
+
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth) {
@@ -68,14 +70,69 @@ main {
         z-index: 1;
     }
 
-    .top-row.auth ::deep a:first-child {
-        flex: 1;
-        text-align: right;
-        width: 0;
-    }
+        .top-row.auth ::deep a:first-child {
+            flex: 1;
+            text-align: right;
+            width: 0;
+        }
 
     .top-row, article {
         padding-left: 2rem !important;
         padding-right: 1.5rem !important;
     }
+
+
+    .authentication-size {
+        font-size: 15px;
+        text-decoration: none;
+        color:white;
+        
+    }
+}
+
+
+
+
+
+.banner {
+    min-height: 100px;
+    background-color: #b69ccf;
+}
+.banner-icon{
+    font-size:20px
+}
+
+#logo {
+    height: 100px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    background-color: #61a17f;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    position: sticky;
+    top: 100px;
+    z-index: 999;
+}
+
+.nav-container {
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: 0.5s;
+}
+
+    .nav-container:hover {
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+
+
+
+.nav-font{
+    font-size:15px;
 }

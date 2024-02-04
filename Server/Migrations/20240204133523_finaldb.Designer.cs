@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FullSD.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240129023020_finaldB")]
-    partial class finaldB
+    [Migration("20240204133523_finaldb")]
+    partial class finaldb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -241,7 +241,7 @@ namespace FullSD.Server.Migrations
                         {
                             Id = "be04dd60-8599-41c2-8096-67868766306c",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "740b2717-8809-469c-89a5-45128d2b7b70",
+                            ConcurrencyStamp = "904008b2-478f-4a65-9400-386f2242e7d9",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -249,9 +249,9 @@ namespace FullSD.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN@LOCALHOST.COM",
-                            PasswordHash = "AQAAAAIAAYagAAAAENHaVNeofibbW8oMM79OiGiEfLaDHNyci17VNaxv0f0cG2pPkcdyzk/orFletIUZYA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDJSShVE7qinmxAqgm26Ba/zL9AO/duAV6RQCSZKlQzwR33CzA7Uu3l+LjtQz6mxtA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "3adbb520-4d37-4585-b2a4-5ff5d78175f5",
+                            SecurityStamp = "c0081624-9180-4307-b991-92db678f0810",
                             TwoFactorEnabled = false,
                             UserName = "admin@localhost.com"
                         });
@@ -280,8 +280,8 @@ namespace FullSD.Server.Migrations
                         .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<string>("BookTime")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime?>("BookTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("BranchId")
                         .IsRequired()
@@ -292,7 +292,6 @@ namespace FullSD.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("StaffId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -655,7 +654,10 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 1,
+                            BranchId = 1,
+                            StaffDOB = new DateTime(2005, 3, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S1234567F",
+                            StaffJoinDate = new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Milly",
                             StaffPhoneNo = 98765432,
                             StaffPostion = "Manager"
@@ -663,7 +665,10 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 2,
+                            BranchId = 1,
+                            StaffDOB = new DateTime(2001, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S2345678F",
+                            StaffJoinDate = new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Aaron",
                             StaffPhoneNo = 87654321,
                             StaffPostion = "Staff"
@@ -671,7 +676,10 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 3,
+                            BranchId = 2,
+                            StaffDOB = new DateTime(1999, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S3456789F",
+                            StaffJoinDate = new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Vedal",
                             StaffPhoneNo = 76543210,
                             StaffPostion = "Staff"
@@ -679,7 +687,10 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 4,
+                            BranchId = 3,
+                            StaffDOB = new DateTime(2002, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S4567890F",
+                            StaffJoinDate = new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Marciana",
                             StaffPhoneNo = 65432109,
                             StaffPostion = "Staff"
@@ -687,7 +698,10 @@ namespace FullSD.Server.Migrations
                         new
                         {
                             Id = 5,
+                            BranchId = 4,
+                            StaffDOB = new DateTime(1996, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             StaffIcNo = "S5678901F",
+                            StaffJoinDate = new DateTime(2024, 2, 4, 0, 0, 0, 0, DateTimeKind.Local),
                             StaffName = "Mark",
                             StaffPhoneNo = 54321098,
                             StaffPostion = "Staff"
@@ -868,9 +882,7 @@ namespace FullSD.Server.Migrations
 
                     b.HasOne("FullSD.Shared.Domain.Staff", "Staff")
                         .WithMany()
-                        .HasForeignKey("StaffId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StaffId");
 
                     b.Navigation("Branch");
 

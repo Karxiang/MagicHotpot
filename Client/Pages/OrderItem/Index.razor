@@ -2,11 +2,12 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
+@implements IDisposable
 
 <h3 class"card-title">OrderItems</h3>
 <br />
 
-<a href="/orderitems/create" class="btn btn-secondary">
+<a href="/orderItems/create/" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
     Create New OrderItem
 </a>
@@ -17,14 +18,14 @@
 }
 else
 {
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="orderItemsTable">
         <thead>
             <tr>
-                    <th>OrderItem Id</th>
-                    <th>Order qty</th>
-                    <th>Food ID</th>
-                    <th>Booking ID</th>
-                    <th>Actions</th>
+                <th>Id</th>
+                <th>Booking ID</th>
+                <th>Food</th>
+                <th>Order qty</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -32,9 +33,9 @@ else
             {
                 <tr>
                     <td>@orderItem.Id</td>
-                    <td>@orderItem.OrderQty</td>
-                    <td>@orderItem.FoodID</td>
                     <td>@orderItem.BookID</td>
+                    <td>@orderItem.Food.FoodName</td>
+                    <td>@orderItem.OrderQty</td>
                     <td>
                         <a href="/orderItems/view/@orderItem.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -43,10 +44,6 @@ else
                         <a href="/orderItems/edit/@orderItem.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
-
-                        <button class="btn btn-primary" @onclick="@(()=>Delete(orderItem.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
                     </td>
                 </tr>
             }
@@ -54,13 +51,31 @@ else
     </table>
 }
 
+<br/>
+<a href="/bookings/" class="btn btn-outline-dark btn-block">
+    <span class="oi oi-arrow-left"></span>
+    Back To Booking
+</a>
+
 @code {
     private List<OrderItem>? OrderItems;
+    private List<Food>? Foods;
+    Booking? booking = new Booking();
 
     protected async override Task OnInitializedAsync()
     {
-        OrderItems = await _client.GetFromJsonAsync<List<OrderItem>>("api/orderItems");
         OrderItems = await _client.GetFromJsonAsync<List<OrderItem>>($"{Endpoints.OrderItemsEndpoint}");
+        Foods = await _client.GetFromJsonAsync<List<Food>>($"{Endpoints.FoodsEndpoint}");
+    }
+
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#orderItemsTable");
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#orderItemsTable");
     }
 
     async Task Delete(int orderItemId)

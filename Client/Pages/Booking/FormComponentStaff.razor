@@ -62,13 +62,34 @@
             </div>
         </div>
 
+
         <div class="form-group">
+            <label>Book Date: </label>
+            <div>
+                @* <InputDate @bind-Value="@booking.BookDate" class="form-control" /> *@
+                <InputDate Type="InputDateType.Date" min="@DateTime.Today.ToString("yyyy-MM-dd")" class="form-control" @bind-Value="@booking.BookDate" />
+                <ValidationMessage For="@(() => booking.BookDate)" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label>Book Time: </label>
+            <div>
+                <InputDate Type="InputDateType.Time" min="@DateTime.Today.ToString("yyyy-MM-dd")" class="form-control" @bind-Value="@booking.BookTime" />
+                <ValidationMessage For="@(() => booking.BookTime)" />
+            </div>
+        </div>
+
+        
+
+@*         <div class="form-group">
             <label>Book Date: </label>
             <div>
                 <InputDate @bind-Value="@booking.BookDate" class="form-control" />
                 <ValidationMessage For="@(() => booking.BookDate)" />
             </div>
-        </div>
+        </div> *@
 
         <div class="form-group">
             <label>Staff: </label>
@@ -77,7 +98,7 @@
                     <option value="">-- Select Staff --</option>
                     @if (Staffs != null)
                     {
-                        foreach (var staff in Staffs)
+                        foreach (var staff in Staffs.Where(c => c.BranchId == booking.BranchId))
                         {
                             <option value="@staff.Id">@staff.StaffName</option>
                         }
@@ -95,7 +116,7 @@
                 @ButtonText
             </button>
         }
-    <BackToList Target="bookings"/>
+    <BackToList Target="bookings/staff"/>
 </EditForm>
 @code {
     [Parameter] public Booking? booking { get; set; }
@@ -113,6 +134,5 @@
         Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
         Customers = await _client.GetFromJsonAsync<List<Customer>>($"{Endpoints.CustomersEndpoint}");
         Staffs = await _client.GetFromJsonAsync<List<Staff>>($"{Endpoints.StaffsEndpoint}");
-
     }
 }

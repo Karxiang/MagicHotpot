@@ -33,7 +33,7 @@ namespace FullSD.Server.Controllers
         {
 
             //return await _context.Staffs.ToListAsync();
-            var staffs = await _unitOfWork.Staffs.GetAll();
+            var staffs = await _unitOfWork.Staffs.GetAll(includes: q => q.Include(x => x.Branch));
             return Ok(staffs);
         }
 

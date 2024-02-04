@@ -2,6 +2,7 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
+@implements IDisposable
 
 <h3 class"card-title">Staffs</h3>
 <br />
@@ -17,11 +18,12 @@
 }
 else
 {
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="staffsTable">
         <thead>
             <tr>
                     <th>Name</th>
                     <th>Staff IC No</th>
+                    <th>Branch</th>
                     <th>Position</th>
                     <th>PhoneNo</th>
                     <th>DoB</th>
@@ -35,10 +37,14 @@ else
                 <tr>
                     <td>@staff.StaffName</td>
                     <td>@staff.StaffIcNo</td>
+                    <td>@staff.Branch.BranchName</td>
                     <td>@staff.StaffPostion</td>
                     <td>@staff.StaffPhoneNo</td>
-                    <td>@staff.StaffDOB</td>
-                    <td>@staff.StaffJoinDate</td>
+                    <td>@staff.StaffDOB.Value.Date.ToString("dd MMMM yyyy")</td>
+                    <td>@staff.StaffJoinDate.Value.Date.ToString("dd MMMM yyyy")</td>
+                    @* comment above 2 lines if either date of birth or join date is empty and uncomment 2 lines below to edit dates*@
+                    @* <td>@staff.StaffDOB</td>
+                    <td>@staff.StaffJoinDate</td> *@
                     <td>
                         <a href="/staffs/view/@staff.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -63,12 +69,25 @@ else
 
 
 @code {
+
     private List<Staff>? Staffs;
+    private List<Branch>? Branches;
+    private DateTime nullDT = new DateTime(1, 1, 1, 0, 0, 0);
+
 
     protected async override Task OnInitializedAsync()
     {
-        Staffs = await _client.GetFromJsonAsync<List<Staff>>("api/staffs");
         Staffs = await _client.GetFromJsonAsync<List<Staff>>($"{Endpoints.StaffsEndpoint}");
+        Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
+    }
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#staffsTable");
+    }
+
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#staffsTable");
     }
 
     async Task Delete(int staffId)
@@ -84,5 +103,6 @@ else
             }
         }
     }
+
 
 }

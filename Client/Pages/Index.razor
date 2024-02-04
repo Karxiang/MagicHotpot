@@ -1,72 +1,29 @@
 ﻿@page "/"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+@inject HttpInterceptorService _interceptor
+@implements IDisposable
 
-<style>
-
-    .button-container {
-        margin-top: 20px;
-    }
-
-    .menu-button {
-        background-color: #b69ccf; /* Lilac - IU*/
-        color: #fff;    /* White*/
-        padding: 10px 20px;
-        font-size: 18px;
-        margin: 5px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-    }
-
-
-    body {
-        background-color: #000;
-        color: #fff;
-    }
-
-    .container {
-        max-width: 800px;
-        padding: 20px;
-        margin: 0 auto;
-        text-align: center;
-        font-size: 10px;
-    }
-    .image{
-        width:45%;
-        margin:1%;
-    }
-
-    h1 {
-        font-size: 2em;
-        margin-bottom: 20px;
-    }
-    h2{
-        font-size: 25px;
-    }
-    @*meaning Paragraph, em = measurement*@
-    p {
-        font-size: 1.5em;
-        line-height: 1.6;
-    }
-    
-
-    }
-</style>
 
 <div class="container">
     <h1>Welcome to Magic Hotpot</h1>
-    <img src="https://cdn.discordapp.com/attachments/1021508602671939746/1181618959645155398/Screenshot_1.png?ex=6581b769&is=656f4269&hm=b8ff2e927369ec7eb4a25917a2b1b866c54729dac048604fd48193e942f0ece3&" alt="Image 1" class="image">
+    <img src="images/icon.jpg" alt="Image 1" class="image">
     <div class="button-container">
-        <button class="menu-button">RESERVATION</button>
-        <button class="menu-button">MENU</button>
-        <button class="menu-button">CONTACT US</button>
-        <button class="menu-button">REVIEWS</button>
+        <a class="menu-button" href="/bookings" style="text-decoration:none">Reservation</a>
+        <a class="menu-button" href="/foods" style="text-decoration:none">Menu</a>
+        <a class="menu-button" href="/branches" style="text-decoration:none">Our Branch</a>
+        <a class="menu-button" href="/reviews" style="text-decoration:none">Review</a>
+        <a class="menu-button" href="/about" style="text-decoration:none">About</a>
+
     </div>
-    @*<h2>Hello World</h2>
-    <div class="image-container">
-        <img src="https://t3.ftcdn.net/jpg/02/09/65/14/360_F_209651427_Moux8Hkey15wtMbtLymbPPrdrLhm58fH.jpg" alt="Image 1" class="image">
-        <img src="https://images.pexels.com/photos/87651/earth-blue-planet-globe-planet-87651.jpeg?cs=srgb&dl=pexels-pixabay-87651.jpg&fm=jpg" alt="Image 2" class="image">
-    </div>*@
 </div>
 
 
-    @*Next, external css*@
+
+@code{
+    public void Dispose(){
+        _interceptor.DisposeEvent();
+    }
+}
+
+
