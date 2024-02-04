@@ -98,7 +98,7 @@
                     <option value="">-- Select Staff --</option>
                     @if (Staffs != null)
                     {
-                        foreach (var staff in Staffs.Where(c => c.BranchId == c.Branch.Id))
+                        foreach (var staff in Staffs.Where(c => c.BranchId == booking.BranchId))
                         {
                             <option value="@staff.Id">@staff.StaffName</option>
                         }
@@ -134,6 +134,5 @@
         Branches = await _client.GetFromJsonAsync<List<Branch>>($"{Endpoints.BranchesEndpoint}");
         Customers = await _client.GetFromJsonAsync<List<Customer>>($"{Endpoints.CustomersEndpoint}");
         Staffs = await _client.GetFromJsonAsync<List<Staff>>($"{Endpoints.StaffsEndpoint}");
-
     }
 }
