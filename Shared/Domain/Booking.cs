@@ -17,7 +17,7 @@ namespace FullSD.Shared.Domain
 
 		public int? BookPartySize { get; set; }
 		[Required]
-		[RegularExpression("^(DineIn|DineOut|1|2|in|In|out|Out|Dine In|Dine Out)$", ErrorMessage = "Please Choose 'Dine In' or 'Dine Out'.")]
+		[RegularExpression("^(DineIn|DineOut|1|2|in|In|out|Out|Dine In|Dine Out)$", ErrorMessage = "Please type only 'Dine In' or 'Dine Out'.")]
 		public string? BookDiningType { get; set; }
         public string? BookAddNote { get; set; }
 		[Required]
