@@ -31,7 +31,6 @@ namespace FullSD.Shared.Domain
 		[Required]
         public int? BranchId { get; set; }
         public virtual Staff? Staff { get; set; }
-		[Required]
         public int? StaffId { get; set; }
 		
 
