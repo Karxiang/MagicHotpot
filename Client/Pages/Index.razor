@@ -1,10 +1,14 @@
 ﻿@page "/"
-
+@inject HttpClient _client
+@inject NavigationManager _navManager
+@inject HttpInterceptorService _interceptor
+@implements IDisposable
+@attribute [Authorize]
 
 
 <div class="container">
     <h1>Welcome to Magic Hotpot</h1>
-    <img src="https://cdn.discordapp.com/attachments/1021508602671939746/1181618959645155398/Screenshot_1.png?ex=6581b769&is=656f4269&hm=b8ff2e927369ec7eb4a25917a2b1b866c54729dac048604fd48193e942f0ece3&" alt="Image 1" class="image">
+    <img src="images/icon.jpg" alt="Image 1" class="image">
     <div class="button-container">
         <a class="menu-button" href="/bookings" style="text-decoration:none">Reservation</a>
         <a class="menu-button" href="/foods" style="text-decoration:none">Menu</a>
@@ -13,19 +17,12 @@
     </div>
 </div>
 
-<style>
-body {
-    background-color: #000000;
-    color: #fff;
+
+
+@code{
+    public void Dispose(){
+        _interceptor.DisposeEvent();
+    }
 }
 
-h1 {
-    font-size: 4em;
-    margin-bottom: 20px;
-}
 
-h2 {
-    font-size: 25px;
-}
-</style>
-    @*Next, external css*@

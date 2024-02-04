@@ -14,11 +14,10 @@ main {
 }
 
 .top-row {
-    background-color: #f7f7f7;
-    border-bottom: 1px solid #d6d5d5;
-    justify-content: flex-end;
+    justify-content: space-between;
     height: 3.5rem;
     display: flex;
+    z-index:999;
     align-items: center;
 }
 
@@ -27,7 +26,7 @@ main {
         margin-left: 1.5rem;
         text-decoration: none;
     }
-/*
+
     .top-row ::deep a:hover, .top-row ::deep .btn-link:hover {
         text-decoration: underline;
     }
@@ -35,7 +34,9 @@ main {
     .top-row ::deep a:first-child {
         overflow: hidden;
         text-overflow: ellipsis;
-    }*/
+    }
+
+
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth) {
@@ -80,21 +81,58 @@ main {
         padding-right: 1.5rem !important;
     }
 
-    .nav-link {
-        text-decoration: none;
-        color: #b69ccf;
+
+    .authentication-size {
         font-size: 15px;
-        font-family: Arial, sans-serif;
-        font-weight: 400;
-        word-wrap: break-word;
-        transition: color 0.3s, font-weight 0.3s;
-        width: auto;
-        margin-right: 10px;
-        top: 55px;
+        text-decoration: none;
+        color:white;
+        
+    }
+}
+
+
+
+
+
+.banner {
+    min-height: 100px;
+    background-color: #b69ccf;
+}
+.banner-icon{
+    font-size:20px
+}
+
+#logo {
+    height: 100px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.navbar {
+    width: 100%;
+    height: 50px;
+    background-color: #61a17f;
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    position: sticky;
+    top: 100px;
+    z-index: 999;
+}
+
+.nav-container {
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: 0.5s;
+}
+
+    .nav-container:hover {
+        color: #FFFFFF;
+        font-weight: bold;
     }
 
-        .nav-link:hover {
-            color: black;
-            font-weight: bold;
-        }
+
+
+.nav-font{
+    font-size:15px;
 }
