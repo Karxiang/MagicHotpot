@@ -42,7 +42,15 @@ else
                     <td>@booking.Customer.CustomerName</td>
                     <td>@booking.BookDate.Value.Date.ToString("dd MMMM yyyy")</td>
                     <td>@booking.BookTime.Value.ToString("h:mm tt").ToUpper()</td>
-                    <td>@booking.Staff.StaffName</td>
+                    @if(booking.Staff!=null)
+                    {
+                        <td>@booking.Staff.StaffName</td>
+                    }
+                    else
+                    {
+                        <td>Staff To Be Added</td>
+                    }
+                    @* <td>@booking.Staff.StaffName</td> *@
                     <td>
                         <a href="/bookings/view/staff/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>

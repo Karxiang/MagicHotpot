@@ -18,6 +18,6 @@
     async Task EditBooking()
     {
         await _client.PutAsJsonAsync($"{Endpoints.BookingsEndpoint}/{id}", booking);
-        _navManager.NavigateTo("/bookings/");
+        _navManager.NavigateTo("/bookings/staff");
     }
 }
