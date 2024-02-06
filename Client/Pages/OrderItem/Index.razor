@@ -43,11 +43,11 @@ else
                             <span class="oi oi-book"></span>
                         </a>
 
-                        <a href="/orderItems/edit/@orderItem.Id" class="btn btn-primary">
+                        <a href="/orderItems/edit/@orderItem.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
 
-                        <button class="btn btn-primary" @onclick="@(()=>Delete(orderItem.Id))">
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(orderItem.Id))">
                             <span class="oi oi-delete"></span>
                         </button>
                     </td>

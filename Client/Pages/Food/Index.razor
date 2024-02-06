@@ -41,11 +41,11 @@ else
                             <span class="oi oi-book"></span>
                         </a>
 
-                        <a href="/foods/edit/@food.Id" class="btn btn-primary">
+                        <a href="/foods/edit/@food.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
 
-                        <button class="btn btn-primary" @onclick="@(()=>Delete(food.Id))">
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(food.Id))">
                             <span class="oi oi-delete"></span>
                         </button>
                     </td>

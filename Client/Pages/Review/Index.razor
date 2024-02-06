@@ -45,11 +45,11 @@ else
                             <span class="oi oi-book"></span>
                         </a>
 
-                        <a href="/reviews/edit/@review.Id" class="btn btn-primary">
+                        <a href="/reviews/edit/@review.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
 
-                        <button class="btn btn-primary" @onclick="@(()=>Delete(review.Id))">
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(review.Id))">
                             <span class="oi oi-delete"></span>
                         </button>
                     </td>

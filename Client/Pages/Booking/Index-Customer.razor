@@ -55,13 +55,9 @@ else
                             <span class="oi oi-book"></span>
                         </a>
 
-                        <a href="/bookings/edit/@booking.Id" class="btn btn-primary">
+                        <a href="/bookings/edit/@booking.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
-
-                        <button class="btn btn-primary" @onclick="@(()=>Delete(booking.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
                     </td>
                     <td>
                         <a href="/orderItems/" class="btn btn-outline-dark btn-block">
