@@ -3,6 +3,8 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 @implements IDisposable
+@inject HttpInterceptorService _interceptor
+
 
 <h3 class"card-title">OrderItems</h3>
 <br />
@@ -44,6 +46,10 @@ else
                         <a href="/orderItems/edit/@orderItem.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
+
+                        <button class="btn btn-primary" @onclick="@(()=>Delete(orderItem.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
                     </td>
                 </tr>
             }
@@ -76,6 +82,7 @@ else
     public void Dispose()
     {
         js.InvokeVoidAsync("DataTablesDispose", "#orderItemsTable");
+        _interceptor.DisposeEvent();
     }
 
     async Task Delete(int orderItemId)

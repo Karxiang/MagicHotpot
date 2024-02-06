@@ -3,6 +3,8 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 @implements IDisposable
+@inject HttpInterceptorService _interceptor
+
 
 <h3 class"card-title">Customer Bookings</h3>
 <br />
@@ -47,7 +49,7 @@ else
                     <td>@booking.BookAddNote</td>
                     <td>@booking.Customer.CustomerName</td>
                     <td>@booking.BookDate.Value.Date.ToString("dd MMMM yyyy")</td>
-                    <td>@booking.BookTime.Value.ToString("h:mm tt").ToUpper()</td>
+                    <td>@booking.BookTime.Value.ToString("h:mm tt").ToUpper()</td> @*prints in 12hr format*@
                     <td>
                         <a href="/bookings/view/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -56,6 +58,10 @@ else
                         <a href="/bookings/edit/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-pencil"></span>
                         </a>
+
+                        <button class="btn btn-primary" @onclick="@(()=>Delete(booking.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
                     </td>
                     <td>
                         <a href="/orderItems/" class="btn btn-outline-dark btn-block">
@@ -99,6 +105,8 @@ else
     public void Dispose()
     {
         js.InvokeVoidAsync("DataTablesDispose", "#bookingsTable");
+        _interceptor.DisposeEvent();
+
     }
 
     async Task Delete(int bookingId)
@@ -114,5 +122,6 @@ else
             }
         }
     }
+
 
 }
