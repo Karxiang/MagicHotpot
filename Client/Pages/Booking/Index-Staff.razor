@@ -3,6 +3,8 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 @implements IDisposable
+@inject HttpInterceptorService _interceptor
+
 
 <h3 class"card-title">Staff Bookings</h3>
 <br />
@@ -50,7 +52,7 @@ else
                     {
                         <td>Staff To Be Added</td>
                     }
-                    @* <td>@booking.Staff.StaffName</td> *@
+                    @*If booking.staff != null, show staff name.*@
                     <td>
                         <a href="/bookings/view/staff/@booking.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>
@@ -96,6 +98,7 @@ else
     public void Dispose()
     {
         js.InvokeVoidAsync("DataTablesDispose", "#bookingsTable");
+        _interceptor.DisposeEvent();
     }
 
     async Task Delete(int bookingId)

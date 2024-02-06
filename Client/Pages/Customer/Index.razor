@@ -3,6 +3,8 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 @implements IDisposable
+@inject HttpInterceptorService _interceptor
+
 
 <h3 class"card-title">Customers</h3>
 <br />
@@ -79,6 +81,7 @@ else
     public void Dispose()
     {
         js.InvokeVoidAsync("DataTablesDispose", "#customersTable");
+        _interceptor.DisposeEvent();
     }
 
     async Task Delete(int customerId)
