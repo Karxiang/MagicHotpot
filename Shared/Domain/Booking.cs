@@ -23,7 +23,9 @@ namespace FullSD.Shared.Domain
 		[Required]
 		[DataType(DataType.Date)]
 		public DateTime? BookDate { get; set; }
-		public DateTime? BookTime { get; set; }
+        [Required]
+        [DataType(DataType.Date)]
+        public DateTime? BookTime { get; set; }
 		public virtual Customer? Customer { get; set; }
 		[Required]
         public int? CustomerId {  get; set; }

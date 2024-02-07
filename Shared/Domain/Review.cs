@@ -16,8 +16,10 @@ namespace FullSD.Shared.Domain
         public string? ReviewDescription { get; set; }
 
         public virtual Customer? Customer { get; set; }
+        [Required]
         public int? CustomerId { get; set; }
         public virtual Booking? Booking { get; set; }
+        [Required]
         public int? BookingId { get;set; }
     }
 }

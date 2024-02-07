@@ -30,6 +30,7 @@ namespace FullSD.Shared.Domain
         public DateTime? StaffJoinDate { get; set; } = DateTime.Today;
 
         public virtual Branch? Branch { get; set; }
+        [Required]
         public int? BranchId { get; set; }
     }
 }
